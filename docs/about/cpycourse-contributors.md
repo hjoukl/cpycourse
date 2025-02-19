@@ -1,4 +1,5 @@
 # The Curious Python Course Contributors
-https://github.com/hjoukl
 
-https://github.com/rkluger68
+<https://github.com/hjoukl>
+
+<https://github.com/rkluger68>

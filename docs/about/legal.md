@@ -1,5 +1,4 @@
-
-## Legal
+# Legal
 
 All original content of this website is governed by its [license](license.md).
 
@@ -7,13 +6,16 @@ Snippets from Python documentation output e.g. in examples from interactive
 interpreter sessions represented here are subject to
 [Python's license](https://docs.python.org/3/license.html).
 
-Python and PyCon are trademarks or registered trademarks of the [Python Software Foundation](https://www.python.org/psf).
+Python and PyCon are trademarks or registered trademarks of the [Python
+Software Foundation](https://www.python.org/psf).
 
-All other trademarks mentioned on this website are the property of their respective owners.
+All other trademarks mentioned on this website are the property of their
+respective owners.
 
-### External Links
+## External Links
+
 External links are being provided as a convenience and for informational
-purposes only; they do not constitute an endorsement or an approval by the 
+purposes only; they do not constitute an endorsement or an approval by the
 [cpycourse contributors](cpycourse-contributors.md) of any of the products,
 services or opinions of the corporation or organization or individual.
 
