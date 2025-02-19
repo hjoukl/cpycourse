@@ -2,6 +2,6 @@
 
 ```
 --8<--
-license.txt
+about/license.txt
 --8<--
 ```
