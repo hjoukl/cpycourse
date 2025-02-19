@@ -5,11 +5,11 @@ Python's main features.
 
 This tutorial refers to Python version 3.
 
-## Python Documentation ##
+## Python Documentation
 
 If you need information way beyond what we can show you here, the (great!)
 official Python documentation can be found here:
-https://docs.python.org/3/index.html
+<https://docs.python.org/3/index.html>
 
 ## Getting a Python
 
@@ -18,7 +18,7 @@ See here for hints on [Python installation](../main-course/installation.md).
 ## Starting the Python interpreter
 
 For an **interactive interpreter session** simply type `python` or `python3` in
-a console/shell of your computer (`$`-shell prompt on \*nix-based systems). 
+a console/shell of your computer (`$`-shell prompt on \*nix-based systems).
 
 This is how this could look like on a Linux system:
 
@@ -34,27 +34,28 @@ You can also use a qualified interpreter version, depending on what's available
 on your machine:
 
 ``` bash
-$ python3.8
-Python 3.8.16 (default, May 31 2023, 12:44:21) 
-[GCC 8.5.0 20210514 (Red Hat 8.5.0-18)] on linux
+$ /usr/bin/python3.12
+Python 3.12.5 (main, Dec  3 2024, 00:00:00) [GCC 11.5.0 20240719 (Red Hat 11.5.0-2)] on linux
 Type "help", "copyright", "credits" or "license" for more information.
+>>> 
 >>> 
 ```
 
 Depending on where Python is installed on your system (and if it is found in
-the places your OS searches for executables) you may want or need the fully
-qualified path to the Python interpreter:
+the places your OS searches for executables - e.g. your `PATH` on a Unix
+system) you may want or need the fully qualified path to the Python
+interpreter:
 
 === "Linux"
 
     ``` bash
-    $ /usr/bin/python3.8
+    $ /usr/bin/python3.12
     ```
 
 === "Windows"
 
     ```
-    # & "C:/Program Files/Python/3.8/python.exe"
+    # & "C:/Program Files/Python/3.12/python.exe"
     ```
 
 On interpreter startup, the first lines show the interpreter version, some
@@ -69,17 +70,18 @@ and a great way to explore Python and try out code snippets..
 The version and copyright information on startup can be suppressed using the
 "quiet" option `-q`.
 
-``` bash    
+``` bash
 $ python -q
 >>>
 ```
 
 **Note:**
-From now on, whenever you see `>>> ...`-lines this means an example in an 
+From now on, whenever you see `>>> ...`-lines this means an example in an
 interactive Python session.
 
-Type in your 1.st Python statement. After pressing the `<Enter>`-key the
-interpreter will execute the statement, and in this case will show the result.
+Start the interpreter as shown and type in your 1.st Python statement. After
+pressing the `<Enter>`-key the interpreter will execute the statement, and in
+this case will show the result.
 
 ``` python
 >>> print("Hello, world!")
@@ -102,8 +104,8 @@ If you enter a simple expression at the prompt (e.g. an integer or string
 >>> 
 ```
 
-An interactive session can be stopped by pressing `Ctrl-d` (Linux) or `Ctrl-z`
-(Windows).
+An interactive interpreter session can be stopped by pressing `Ctrl-d` (Linux)
+or `Ctrl-z` (Windows).
 
 A **summary of the Python interpreter's commandline options** can be listed
 with its help option `-h`. This will display the **usage**, the available
@@ -111,16 +113,17 @@ commandline options and **environment variables** controlling the interpreter.
 Here's the output of a Python 3 interpreter on Linux:
 
 ```
-python3.8 -h
-usage: python3.8 [option] ... [-c cmd | -m mod | file | -] [arg] ...
-Options and arguments (and corresponding environment variables):
--b     : issue warnings about str(bytes_instance), str(bytearray_instance)
-         and comparing bytes/bytearray with str. (-bb: issue errors)
+$ python3.12 -h
+usage: python3.12 [option] ... [-c cmd | -m mod | file | -] [arg] ...
+Options (and corresponding environment variables):
+-b     : issue warnings about converting bytes/bytearray to str and comparing
+         bytes/bytearray with str or bytes with int. (-bb: issue errors)
 -B     : don't write .pyc files on import; also PYTHONDONTWRITEBYTECODE=x
 -c cmd : program passed in as string (terminates option list)
--d     : debug output from parser; also PYTHONDEBUG=x
+-d     : turn on parser debugging output (for experts only, only works on
+         debug builds); also PYTHONDEBUG=x
 -E     : ignore PYTHON* environment variables (such as PYTHONPATH)
--h     : print this help message and exit (also --help)
+-h     : print this help message and exit (also -? or --help)
 -i     : inspect interactively after running script; forces a prompt even
          if stdin does not appear to be a terminal; also PYTHONINSPECT=x
 -I     : isolate Python from the user's environment (implies -E and -s)
@@ -129,8 +132,10 @@ Options and arguments (and corresponding environment variables):
          .pyc extension; also PYTHONOPTIMIZE=x
 -OO    : do -O changes and also discard docstrings; add .opt-2 before
          .pyc extension
+-P     : don't prepend a potentially unsafe path to sys.path; also
+         PYTHONSAFEPATH
 -q     : don't print version and copyright messages on interactive startup
--s     : don't add user site directory to sys.path; also PYTHONNOUSERSITE
+-s     : don't add user site directory to sys.path; also PYTHONNOUSERSITE=x
 -S     : don't imply 'import site' on initialization
 -u     : force the stdout and stderr streams to be unbuffered;
          this option has no effect on stdin; also PYTHONUNBUFFERED=x
@@ -141,75 +146,17 @@ Options and arguments (and corresponding environment variables):
 -W arg : warning control; arg is action:message:category:module:lineno
          also PYTHONWARNINGS=arg
 -x     : skip first line of source, allowing use of non-Unix forms of #!cmd
--X opt : set implementation-specific option. The following options are available:
-
-         -X faulthandler: enable faulthandler
-         -X showrefcount: output the total reference count and number of used
-             memory blocks when the program finishes or after each statement in the
-             interactive interpreter. This only works on debug builds
-         -X tracemalloc: start tracing Python memory allocations using the
-             tracemalloc module. By default, only the most recent frame is stored in a
-             traceback of a trace. Use -X tracemalloc=NFRAME to start tracing with a
-             traceback limit of NFRAME frames
-         -X showalloccount: output the total count of allocated objects for each
-             type when the program finishes. This only works when Python was built with
-             COUNT_ALLOCS defined
-         -X importtime: show how long each import takes. It shows module name,
-             cumulative time (including nested imports) and self time (excluding
-             nested imports). Note that its output may be broken in multi-threaded
-             application. Typical usage is python3 -X importtime -c 'import asyncio'
-         -X dev: enable CPython's "development mode", introducing additional runtime
-             checks which are too expensive to be enabled by default. Effect of the
-             developer mode:
-                * Add default warning filter, as -W default
-                * Install debug hooks on memory allocators: see the PyMem_SetupDebugHooks() C function
-                * Enable the faulthandler module to dump the Python traceback on a crash
-                * Enable asyncio debug mode
-                * Set the dev_mode attribute of sys.flags to True
-                * io.IOBase destructor logs close() exceptions
-         -X utf8: enable UTF-8 mode for operating system interfaces, overriding the default
-             locale-aware mode. -X utf8=0 explicitly disables UTF-8 mode (even when it would
-             otherwise activate automatically)
-         -X pycache_prefix=PATH: enable writing .pyc files to a parallel tree rooted at the
-             given directory instead of to the code tree
-         -X int_max_str_digits=number: limit the size of int<->str conversions.
-             This helps avoid denial of service attacks when parsing untrusted data.
-             The default is sys.int_info.default_max_str_digits.  0 disables.
-
+-X opt : set implementation-specific option
 --check-hash-based-pycs always|default|never:
-    control how Python invalidates hash-based .pyc files
+         control how Python invalidates hash-based .pyc files
+--help-env: print help about Python environment variables and exit
+--help-xoptions: print help about implementation-specific -X options and exit
+--help-all: print complete help information and exit
+
+Arguments:
 file   : program read from script file
 -      : program read from stdin (default; interactive mode if a tty)
 arg ...: arguments passed to program in sys.argv[1:]
-
-Other environment variables:
-PYTHONSTARTUP: file executed on interactive startup (no default)
-PYTHONPATH   : ':'-separated list of directories prefixed to the
-               default module search path.  The result is sys.path.
-PYTHONHOME   : alternate <prefix> directory (or <prefix>:<exec_prefix>).
-               The default module search path uses <prefix>/lib/pythonX.X.
-PYTHONCASEOK : ignore case in 'import' statements (Windows).
-PYTHONUTF8: if set to 1, enable the UTF-8 mode.
-PYTHONIOENCODING: Encoding[:errors] used for stdin/stdout/stderr.
-PYTHONFAULTHANDLER: dump the Python traceback on fatal errors.
-PYTHONHASHSEED: if this variable is set to 'random', a random value is used
-   to seed the hashes of str and bytes objects.  It can also be set to an
-   integer in the range [0,4294967295] to get hash values with a
-   predictable seed.
-PYTHONINTMAXSTRDIGITS: limits the maximum digit characters in an int value
-   when converting from a string and when converting an int back to a str.
-   A value of 0 disables the limit.  Conversions to or from bases 2, 4, 8,
-   16, and 32 are never limited.
-PYTHONMALLOC: set the Python memory allocators and/or install debug hooks
-   on Python memory allocators. Use PYTHONMALLOC=debug to install debug
-   hooks.
-PYTHONCOERCECLOCALE: if this variable is set to 0, it disables the locale
-   coercion behavior. Use PYTHONCOERCECLOCALE=warn to request display of
-   locale coercion and locale compatibility warnings on stderr.
-PYTHONBREAKPOINT: if this variable is set to 0, it disables the default
-   debugger. It can be set to the callable of your debugger of choice.
-PYTHONDEVMODE: enable the development mode.
-PYTHONPYCACHEPREFIX: root directory for bytecode cache (pyc) files.
 ```
 
 ## Getting Help
@@ -217,36 +164,33 @@ PYTHONPYCACHEPREFIX: root directory for bytecode cache (pyc) files.
 In an interactive session/REPL you can access Python's built-in help using
 `help()`:
 
-
 ``` python
 >>> help()
-
-Welcome to Python 3.8's help utility!
-
-If this is your first time using Python, you should definitely check out
-the tutorial on the Internet at https://docs.python.org/3.8/tutorial/.
+Welcome to Python 3.12's help utility! If this is your first time using
+Python, you should definitely check out the tutorial at
+https://docs.python.org/3.12/tutorial/.
 
 Enter the name of any module, keyword, or topic to get help on writing
-Python programs and using Python modules.  To quit this help utility and
-return to the interpreter, just type "quit".
+Python programs and using Python modules.  To get a list of available
+modules, keywords, symbols, or topics, enter "modules", "keywords",
+"symbols", or "topics".
 
-To get a list of available modules, keywords, symbols, or topics, type
-"modules", "keywords", "symbols", or "topics".  Each module also comes
-with a one-line summary of what it does; to list the modules whose name
-or summary contain a given string such as "spam", type "modules spam".
+Each module also comes with a one-line summary of what it does; to list
+the modules whose name or summary contain a given string such as "spam",
+enter "modules spam".
 
-help>
-
+To quit this help utility and return to the interpreter,
+enter "q" or "quit".
 ```
 
 ## Running a Python program
 
-A program is built up of a sequence of python statements (i.e. the "program
+A program is built up of a sequence of Python statements (i.e. the "program
 code" or "code"). This code can be
 
- - entered at the Python prompt, in interactive mode,
- - provided as a command line argument or
- - stored in module files with the `.py`-extension.
+- entered at the Python prompt, in interactive mode,
+- provided as a command line argument or
+- stored in module files with the `.py`-extension.
 
 For simple, short ad-hoc one-liners it can be very handy to use command line
 string arguments:
@@ -268,6 +212,7 @@ But typically, code is placed into Python source files named `<module name>.py`
 src/helloworld.py
 --8<--
 ```
+
 The code can then be executed running the following command:
 
 ``` bash
@@ -278,7 +223,7 @@ $
 
 ### A Sample Python Program
 
-This is a simple Python program that calculates the present value of
+Here's a simple Python program that calculates the present value of
 a series of cashflows:
 
 !!! example
@@ -314,15 +259,13 @@ Present value for [-100, -2, 3, 6, 8, 110] and interest rate 0.03:
     pv = 8.371752776288233
 ```
 
-This program exhibits the main *building blocks* of a Python program.
-
 --8<--
 training/lessons/command-line-calculation/command-line-calculation.md
 --8<--
 
 ### Python Program Building Blocks
 
-A program is built as a sequence of instructions. The basic building blocks of 
+A program is built as a sequence of instructions. The basic building blocks of
 a Python program are:
 
 1. [Expressions](../main-course/grasping-python.md#expressions)
@@ -332,9 +275,9 @@ a Python program are:
 
 So
 
-  - a program is a sequence of comments and statements  
-  - a statement is either an 'executable instruction' (**do-something**) or an 'evaluable expression' (**compute-something**)  
-  - an expression is built up from operands and operators  
+- a program is a sequence of comments and statements  
+- a statement is either an 'executable instruction' (**do-something**) or an 'evaluable expression' (**compute-something**)  
+- an expression is built up from operands and operators  
 
 ### Program Execution
 
@@ -420,9 +363,9 @@ Strings are essential for handling text data:
 'Python\nknows\ntext'
 >>> 
 ```
-    
 
 Strings conveniently support many useful operations:
+
 ``` python
 >>> ''.join(('foo', 'bar'))  # string concatenation using builtin method 'join()'
 'foobar'
@@ -469,9 +412,10 @@ A bit more oldschool:
 'Paul says ho'
 ```
 
-See https://pyformat.info/ for concise information on these topics.
+See <https://pyformat.info/> for concise information on these topics.
 
 "f-strings" allow embedding expressions that get replaced with their values:
+
 ``` python
 >>> name, says = 'Patti', 'yo'
 >>> f'{name} says {says}'
@@ -549,6 +493,7 @@ will result in float values:
 ```
 
 Depending on your needs you can also use "floor" division:
+
 ``` python
 >>> 4 // 2
 2
@@ -759,7 +704,7 @@ Historically, `bool` is derived from int:
 Programs serve a purpose, they follow the IPO-model: Input - Processing - Output
 
 Programs consume information (input), do some work (based on that input) and
-produce information (output). 
+produce information (output).
 The input-side information can be 'raw data' or 'commands' (which tell the
 program what to do with the data).
 The output-side information can be 'computed data' or simple 'status
@@ -773,7 +718,6 @@ program.
 In Python the builtin-functions `input()` and `print()` perform these basic
 tasks.
 
-
 **Input-Example**
 
 ``` python
@@ -783,6 +727,7 @@ Please enter your name: Donald
 'Donald'
 >>>
 ```  
+
   or:
 
 ``` python
@@ -800,7 +745,7 @@ Please enter your name: Donald
 Hello Donald
 >>> 
 ```
-    
+
 **Combined Input/Output Example**
 
 ``` python
@@ -885,7 +830,7 @@ Python also supports
 ```
 
 Being an expression a conditional expression can be written on the right hand
-side of an assignment: 
+side of an assignment:
 
 ``` python
 >>> a = 3
@@ -894,7 +839,6 @@ side of an assignment:
 a is not 1
 >>>
 ```
-
 
 ### Loops
 
@@ -918,7 +862,7 @@ Example:
 2
 3
 >>>
-``` 
+```
 
 `for` loops operate on *iterables*.
 
@@ -927,7 +871,7 @@ Example:
 The Python `while` statement is a representative of what Wikipedia calls a
 [condition-controlled-loop](https://en.wikipedia.org/wiki/Control_flow#Condition-controlled_loops).
 In a `while` loop a condition variable is usually set before and changed within
-the `while` loop. 
+the `while` loop.
 
 Example:
 
@@ -942,7 +886,6 @@ Example:
 3
 >>>
 ```
-
 
 ## Functions
 
@@ -1014,7 +957,6 @@ None
 >>>
 ```
 
-
 Functions can be called repeatedly and therefore are an essential building
 block of reusable code in programming languages.
 
@@ -1044,7 +986,7 @@ access and method call using the `.`-dot operator.
 ... 
 >>> 
 ```
-    
+
 **class instances and attribute/method access**:
 
 ``` python
@@ -1179,9 +1121,9 @@ training/lessons/generate-un-even-numbers/generate-un-even-numbers.md
 ## Comprehensions and Generator Expressions
 
 ### List Comprehensions
+
 **List comprehensions** are an elegant and powerful feature to populate lists
 using a syntax that very much feels like a mathematical set notation:
-
 
 ``` python
 >>> import os  # operating system (OS) routines
@@ -1222,6 +1164,7 @@ data structure but yield elements on demand:
 ```
 
 ### Dict Comprehensions
+
 A **dict comprehension** can be used to create a dictionary:
 
 ``` python
@@ -1241,6 +1184,7 @@ training/lessons/rewrite-dict-comprehension/rewrite-dict-comprehension.md
 --8<--
 
 ### Set Comprehensions
+
 A **set comprehension** can be used to create a set from an iterable:
 
 ``` python
