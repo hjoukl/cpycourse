@@ -32,9 +32,11 @@ identified using the built-in `type()`-function:
 >>> 
 ```
 
-A word on variable naming: we often use short, single-character variable names
-throughout this chapter. This is just for brevity in presentation of the many
-many methods available on Python objects.
+## A Word on Variable Naming
+
+We often use short, single-character variable names throughout this chapter.
+This is just for brevity in presentation of the many many methods available on
+Python objects.
 
 **Do not** use such short variable names in real world programs! Except in very
 rare cases e.g. where the variable is used in a very limited scope and a short
@@ -43,7 +45,7 @@ name might be convention, like index variables.
 *Always* name your variables in way that they help understanding the programs
 meaning. Your future self will thank you for it. :wink:
 
-## Numeric datatypes
+## Numeric Datatypes
 
 ### Integers - `int`
 
