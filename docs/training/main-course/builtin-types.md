@@ -7,18 +7,18 @@ primitive data types) as well as **compound types**, which are collections or
 containers of data of equal or different type.
 
 Each of the Python data types provide a data type-specific set of *methods* and
-*operators* that determine the data type's behaviour. This ensemble of __data__
-and __behaviour__ defines the properties of all Python objects.  For the
+*operators* that determine the data type's behaviour. This ensemble of **data**
+and **behaviour** defines the properties of all Python objects.  For the
 complete list please refer to [Python Built-in
 Types](https://docs.python.org/3/library/stdtypes.html).
 
 Python built-in data types are Python classes themselves. Instances of nearly
 all Python builtin data-types can be created in two different ways:
 
- - using a type-specific literal notation: literals in the case of **simple
+- using a type-specific literal notation: literals in the case of **simple
    data types** or "literals in brackets" `(`,  `)`, `[`, `]`, `{`, `}` in
-   the case of **compound data-types** 
- - using the data type's class constructor
+   the case of **compound data-types**
+- using the data type's class constructor
 
 The type of a literal or a variable (referencing or naming an object) can be
 identified using the built-in `type()`-function:
@@ -31,6 +31,17 @@ identified using the built-in `type()`-function:
 <class 'int'>
 >>> 
 ```
+
+A word on variable naming: we often use short, single-character variable names
+throughout this chapter. This is just for brevity in presentation of the many
+many methods available on Python objects.
+
+**Do not** use such short variable names in real world programs! Except in very
+rare cases e.g. where the variable is used in a very limited scope and a short
+name might be convention, like index variables.
+
+*Always* name your variables in way that they help understanding the programs
+meaning. Your future self will thank you for it. :wink:
 
 ## Numeric datatypes
 
@@ -55,6 +66,7 @@ Example usage:
 ### Floating Point Values - `float`
 
 Example usage:
+
 ``` python
 >>> 1.2
 1.2
@@ -108,9 +120,9 @@ training/lessons/input-number-rounding/input-number-rounding.md
 
 Sequences are indexed, ordered "list data sets" of objects:
 
- - strings are *immutable* sequences of characters
- - tuples are *immutable* sequences of arbitrary objects
- - lists are *mutable* sequences of arbitrary objects
+- strings are *immutable* sequences of characters
+- tuples are *immutable* sequences of arbitrary objects
+- lists are *mutable* sequences of arbitrary objects
 
 ### Common Sequence Operations
 
@@ -480,7 +492,6 @@ s.reverse()           # reverse sequence items in-place
 s.sort()              # sort list items in-place; opt. key function + reverse flag
 ```
 
-
 Additional modifying list operations:
 
 ``` python
@@ -542,13 +553,12 @@ object at 0x7f6b7657e0c0>]
 The Python standard library also provides an `array`-type where the objects are restricted to be of the same type, see
 [Python Arrays](https://docs.python.org/3/library/array.html).
 
-
 ### Dictionaries - `dict`
 
 Dictionaries are *mapping objects*: a collection of objects indexed by key
 values.[^hashtable] Keys must be *hashable* objects which rules out
 certain mutable objects (e.g. a `dict` or a `set` cannot act as a dictionary
-key). 
+key).
 
 [^hashtable]: Sometimes such objects are called "hash table" or "associative array".
 
@@ -602,7 +612,8 @@ m.values() -> dict_values(m)          # iterable object as a view on m's values
 
 ***dictionary-lookup***
 
-Accessing individual elements of a dictionary `m` is done using the dictionary key-indexing-operator `m.[key]`
+Accessing individual elements of a dictionary `m` is done using the dictionary
+key-indexing-operator `m[key]`
 
 ``` python
 >>> {'name': 'Paul', 'age': 26, 'profession': 'author'}['name']
@@ -643,7 +654,6 @@ As opposed to the other Python builtin data types, `set`- type generation can on
 >>> 
 ```
   
-
 ### None - `None`
 
 The Python `None` type is referred to as the `Null`-Object. It has a builtin contstant named `None`
@@ -666,5 +676,3 @@ True
 >>> <class 'bool'>
 >>> 
 ```
-
-
