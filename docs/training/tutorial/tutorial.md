@@ -325,6 +325,9 @@ Present value for [-100, -2, 3, 6, 8, 110] and interest rate 0.03:
     pv = 8.371752776288233
 ```
 
+So according to net present value (NPV) model assumptions this looks like a
+worthwile investment. :wink:
+
 ## Variables and Assignments
 
 Variables are one of the key elements of programming languages. Although
@@ -458,7 +461,7 @@ Older style formatting is done with the `str.format` method:
 ```
 
 The `str.format`variant is especially useful when you want a string *template*
-rather than evaluluating at once.
+rather than evaluating at once.
 
 Even more oldschool:
 
@@ -548,6 +551,8 @@ Depending on your needs you can also use "floor" division:
 >>> 
 ```
 
+Using floor division ensures that the resulting data type is an integer.
+
 ### Lists - `list`
 
 A Python list is an array of unnamed objects of (potentially) different types.
@@ -570,29 +575,29 @@ Similar to `str` list supports many useful sequence operations:
 <class 'list'>
 >>> len([1, 'foo', 3.14]) # get length of a list
 3
->>> l = [1, 'foo', 3.14]
->>> l[0]
+>>> my_list = [1, 'foo', 3.14]
+>>> my_list[0]
 1
->>> l[-1]
+>>> my_list[-1]
 3.14
->>> l[0:1]
+>>> my_list[0:1]
 [1]
->>> l[0:2]
+>>> my_list[0:2]
 [1, 'foo']
->>> l[1:]
+>>> my_list[1:]
 ['foo', 3.14]
->>> l.insert(2, 'bar')
->>> l
+>>> my_list.insert(2, 'bar')
+>>> my_list
 [1, 'foo', 'bar', 3.14]
->>> l.pop()
+>>> my_list.pop()
 3.14
->>> l.index('foo')
+>>> my_list.index('foo')
 1
->>> del l[0]
->>> l
+>>> del my_list[0]
+>>> my_list
 ['foo', 'bar']
->>> l[0] = 'bea'
->>> l
+>>> my_list[0] = 'bea'
+>>> my_list
 ['bea', 'bar']
 >>> 
 ```
@@ -604,7 +609,7 @@ training/lessons/list-modification/list-modification.md
 ### Tuples - `tuple`
 
 Tuples are pretty similar to lists. They can store unnamed objects of different
-type but opposed to Python lists, they are unchangeable, i.e elements can't be
+type but opposed to Python lists, they are unchangeable. I.e. elements can't be
 inserted, substituted or removed:
 
 ``` python
@@ -619,20 +624,20 @@ Example tuple operations:
 ``` python
 >>> len((1, 'foo', 3.14)) # length of a tuple
 3
->>> l = (1, 'foo', 3.14)
->>> l[0]
+>>> my_tuple = (1, 'foo', 3.14)
+>>> my_tuple[0]
 1
->>> l[-1]
+>>> my_tuple[-1]
 3.14
->>> l[0:2]
+>>> my_tuple[0:2]
 (1, 'foo')
->>> l + (42, )  # create a new extended tuple by concatenation
+>>> my_tuple + (42, )  # create a new extended tuple by concatenation
 (1, 'foo', 3.14, 42)
->>> del l[0]
+>>> del my_tuple[0]
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 TypeError: 'tuple' object doesn't support item deletion
->>> l[0] = 'more'
+>>> my_tuple[0] = 'more'
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
   TypeError: 'tuple' object does not support item assignment
@@ -655,22 +660,22 @@ Dictionaries are a nearly ubiquituous data type in Python. Dictionaries are a
 Example `dict` operations:
 
 ``` python
->>> d = {'name': 'Paul', 'age': 26, 'profession': 'author'}
->>> d['name']
+>>> dct = {'name': 'Paul', 'age': 26, 'profession': 'author'}
+>>> dct['name']
 'Paul'
->>> d['age'] = 27
->>> list(d.items())
+>>> dct['age'] = 27
+>>> list(dct.items())
 [('name', 'Paul'), ('age', 27), ('profession', 'author')]
->>> list(d.keys())
+>>> list(dct.keys())
 ['name', 'age', 'profession']
->>> list(d.values())
+>>> list(dct.values())
 ['Paul', 27, 'author']
->>> del d['age']
->>> d
+>>> del dct['age']
+>>> dct
 {'name': 'Paul', 'profession': 'author'}
->>> d.popitem()
+>>> dct.popitem()
 ('profession', 'author')
->>> d
+>>> dct
 {'name': 'Paul'}
 >>> 
 
@@ -694,7 +699,7 @@ operations like `union`, `intersection` and others.
 >>> 
 ```
 
-`set`-example
+Some set operations examples:
 
 ``` python
 >>> set([1, 2, 'foo', 'foo'])  # set from a list with a duplicate element
@@ -713,8 +718,9 @@ operations like `union`, `intersection` and others.
 
 ### None - `None`
 
-The Python `None` type is a built-in constant and frequently used as a
-"null"-object to denote the absence of a value.
+The Python `None` object is a built-in singleton (there's only ever one unique
+`None` object in a Python process) and frequently used as a "null" object to
+denote the absence of a value.
 
 A very common use is as a default function argument.
 
@@ -727,17 +733,22 @@ A very common use is as a default function argument.
 
 ### Boolean `bool`
 
-The Python `bool` type has two built-in constants named `False` and `True`:
+The Python `bool` type has two built-in values named `False` and `True`:
 
 ``` python
 >>> True
 True
 >>> type(True)
 >>> <class 'bool'>
+>>> False
+False
+>>> type(False)
+>>> <class 'bool'>
 >>> 
 ```
 
-Historically, `bool` is derived from int:
+For historical reasons (early Python didn't have a dedicated boolean type),
+`bool` is derived from int:
 
 ``` python
 >>> True + 1
@@ -747,67 +758,77 @@ Historically, `bool` is derived from int:
 
 ## Input and Output
 
-Programs serve a purpose, they follow the IPO-model: Input - Processing - Output
+Programs serve a purpose. Typically they follow the IPO model:
 
-Programs consume information (input), do some work (based on that input) and
-produce information (output).
-The input-side information can be 'raw data' or 'commands' (which tell the
+Input - Processing - Output
+
+I.e. programs consume information (input), do some work (based on that input)
+and produce information (output).
+
+Program input information can be "raw data"" or "commands" (which tell the
 program what to do with the data).
-The output-side information can be 'computed data' or simple 'status
-information' describing the state of (individual) processing steps.
+
+The output information will be computed data. Which may be simple status
+information describing the state of (individual) processing steps, more/other
+"raw data", or follow-up "commands" (possibly as input to other programs).
 
 Programs can consume and produce information from and to different channels.
-One kind of these channels is referred to as 'standard-input'/'standard-output'
-enabling a user to interactively provide input to and retrieve output from a
-program.
+Two very important channels are often referred to (in unixy terms) as
+"standard input" (aka stdin) and "standard output" (aka stdout).
 
-In Python the builtin-functions `input()` and `print()` perform these basic
+These enable us to provide input to and retrieve output from a program, e.g.
+for interactive user input or output to the terminal/screen.
+
+In Python the builtin functions `input()` and `print()` perform these basic
 tasks.
 
-**Input-Example**
+Input examples:
 
 ``` python
 >>> # just echo the input
 >>> input('Please enter your name: ')
-Please enter your name: Donald
-'Donald'
+Please enter your name: Idefix
+'Idefix'
 >>>
 ```  
-
-  or:
 
 ``` python
 >>> # store the input
 >>> name = input('Please enter your name: ')
-Please enter your name: Donald
+Please enter your name: Idefix
 >>> 
 ```
 
-**Output-Example**
+Output examples:
 
 ``` python
->>> # print the stored input
+>>> # print the previously stored input
 >>> print('Hello %s' % name)
-Hello Donald
+Hello Idefix
 >>> 
 ```
 
-**Combined Input/Output Example**
+You can also directly reuse an input invocation result for output:
 
 ``` python
->>> print('Hello %s' % input('Please enter your name: '))
-Please enter your name: Donald
-Hello Donald
+>>> print(f"Hello {input('Please enter your name: ')}")
+Please enter your name: Idefix
+Hello Idefix
 >>>
 ```
 
 ## Control Flow
 
-[Wikipedia](https://en.wikipedia.org/wiki/Control_flow) describes control flow as follows:
+[Wikipedia](https://en.wikipedia.org/wiki/Control_flow) describes control flow
+as follows:
 
-"In computer science, control flow (or flow of control) is the order in which individual statements, instructions or function calls of an imperative program are executed or evaluated. The emphasis on explicit control flow distinguishes an imperative programming language from a declarative programming language."
+"In computer science, control flow (or flow of control) is the order in which
+individual statements, instructions or function calls of an imperative program
+are executed or evaluated. The emphasis on explicit control flow distinguishes
+an imperative programming language from a declarative programming language."
 
-Python provides two kinds of 'explicit controls' affecting the order of execution:
+Python provides two kinds of explicit controls affecting the order of
+execution:
 
 1. Choices
 2. Loops
@@ -817,11 +838,11 @@ Python provides two kinds of 'explicit controls' affecting the order of executio
 Choices are conditional controls, affecting the branches of execution according
 to a boolean condition.
 
-#### if-statements
+#### if Statements
 
-Python provides different variations of `if`-statements:
+Python provides different variations of `if` statements:
 
-Simple `if` - example:
+Simple `if` example:
 
 ``` python
 >>> a = 1
@@ -832,7 +853,7 @@ a is 1
 >>> 
 ```
 
-`if-elif` - example:
+`if-elif` example:
 
 ``` python
 >>> a = 2
@@ -845,24 +866,69 @@ a is 2
 >>>
 ```
 
-`if-elif-else` - example:
+`if-elif-else` example:
 
 ``` python
->>> a = 3
+>>> a = 4
 >>> if a == 1:
 ...     print('a is 1')
 ... elif a == 2:
 ...     print('a is 2')
+... elif a == 3:
+...     print('a is 3')
 ... else:
-...     print('a is neither 1 nor 2')
+...     print('a is neither 1, 2 nor 3')
 ... 
-a is neither 1 nor 2
+a is neither 1, 2 nor 3
 >>>
 ```
+
+``` python
+If you don't want to do anything in a choice execution branch the `pass`
+statement comes in handy:
+
+>>> today = "Saturday"
+>>> if today in ("Monday", "Tuesday", "Wednesdy", "Thursday", "Friday"):
+...     print("Working hard!")
+... else:
+...     pass  # Really do nothing. :-)
+... 
+>>> 
+```
+
+`pass` is basically a "no-op".
 
 --8<--
 training/lessons/check-user-input-evenness/check-user-input-evenness.md
 --8<--
+
+#### match Statements
+
+Python 3.10 introduced the `match` statement. It's a powerful
+"structural pattern matching" construct that can be used to choose code
+branch execution depending on the structure of an object and also bind values
+to variable names.
+
+In that sense, it can also be viewed as a choice construct. Superficially it
+looks similar to switch-case constructs in other languages, and it can also
+be used to implement the simpler `if-elif-else` logic:
+
+``` python
+>>> a = 4
+>>> match a:
+...     case 1:
+...         print('a is 1')
+...     case 2:
+...         print('a is 2')
+...     case 3:
+...         print('a is 3')
+...     case _:
+...         print('a is neither 1, 2 nor 3')
+... 
+a is neither 1, 2 nor 3
+```
+
+This tutorial won't go into the details of the `match` statement.
 
 #### Conditional Expressions
 
@@ -888,15 +954,15 @@ a is not 1
 
 ### Loops
 
-Loops are repetitive controls, affecting the number of iterations a code
-block is executed.
+Loops are repetitive controls, affecting the number of times (iterations) a
+code block is executed.
 
 #### for Statement
 
 The Python `for` statement is a representative of what Wikipedia calls a
 [count-controlled-loop](https://en.wikipedia.org/wiki/Control_flow#Count-controlled_loops).
 The number of repetitions in a `for` loop is defined by the number elements of
-a (probably dynamically generated) sequence.
+a (probably dynamically generated) "iterable".
 
 Example:
 
@@ -910,7 +976,7 @@ Example:
 >>>
 ```
 
-`for` loops operate on *iterables*.
+`for` loops operate on *iterables* - something which can be iterated on.
 
 #### while Statement
 
@@ -993,7 +1059,7 @@ Functions can return values and function parameters can have default arguments:
 >>>
 ```
 
-A function without an explicit return statements implicitly returns `None`:
+A function without an explicit return statement implicitly returns `None`:
 
 ``` python
 >>> echo_return_value = echo("Hello, world!")
@@ -1017,14 +1083,14 @@ definitions which include data - so called **attributes** - and **methods** -
 functions that define the type-specific behaviour. **Instances** are objects
 created from classes.
 
-The following example demonstrates a simple `class`-definition,
+The following example demonstrates a simple `class` definition,
 class instantiations and common operations on class instances like attribute
-access and method call using the `.`-dot operator.
+access and method call using the `.` (dot) operator.
 
 **class definition**:
 
 ``` python
->>> class MyDog:
+>>> class Dog:
 ...     def __init__(self, name):   # class constructor
 ...         self.name = name        # instance attribute
 ...     def bark(self):             # instance method
@@ -1036,10 +1102,10 @@ access and method call using the `.`-dot operator.
 **class instances and attribute/method access**:
 
 ``` python
->>> my_dog = MyDog("Django")  # create class instance
->>> my_dog.name               # access instance attribute with '.'-dot operator
+>>> my_dog = Dog("Django")  # create class instance
+>>> my_dog.name             # access instance attribute with '.'-dot operator
 'Django'
->>> my_dog.bark()             # call instance method using '.'-dot operator
+>>> my_dog.bark()           # call instance method using '.'-dot operator
 Django says wuff
 >>>
 ```
@@ -1073,6 +1139,9 @@ caught [Errno 2] No such file or directory: 'myfile.txt'
 >>> 
 ```
 
+An exception will "travel" up the call stack until caught, or otherwise
+interrupt the running program.
+
 ## Modules & Packages
 
 In addition to Python's built-ins, standard library and 3rd party libraries
@@ -1095,7 +1164,7 @@ src/mymodule.py
 --8<--
 ```
 
-Now you can **reuse** this functionality:
+Now you can **reuse** this modularized functionality:
 
 ``` python
 >>> import mymodule
@@ -1131,6 +1200,8 @@ of returning values:
 3
 4
 ```
+
+Note how generators look like functions but have a `yield` in their body.
 
 For memory efficiency, these generated values are created on demand, in each
 iteration step, as opposed to pre-populating e.g. a large list.
