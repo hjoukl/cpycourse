@@ -5,16 +5,16 @@
         Starting out with
         
         ```python
-        >>> l = ['Agathe', 'Bauer']
+        >>> my_list = ['Agathe', 'Bauer']
         ```
         
-        modify `l` by
+        modify `my_list` by
         
          - changing the 1st element to "I've"
          - changing the 2nd lement to "got"
-         - extending l with a 3rd element "the power"
+         - extending my_list with a 3rd element "the power"
 
-         in-place, i.e. not by creating a new list object from l.
+         in-place, i.e. not by creating a new list object from my_list.
 
     === "Hints"
     
