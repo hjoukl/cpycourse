@@ -251,6 +251,36 @@ Hello, world!
 $
 ```
 
+### Python Program Building Blocks
+
+A program is built as a sequence of instructions. The basic building blocks of
+a Python program are:
+
+1. [Operands and
+   Operators](../main-course/grasping-python.md#operands-and-operators): e.g.
+`1 + 2`
+2. [Expressions](../main-course/grasping-python.md#expressions): e.g.
+`len("some interesting string")`
+1. [Statements](../main-course/grasping-python.md#statements): e.g.
+`string_size = len("some interesting string")`
+1. [Comments](../main-course/grasping-python.md#comments): e.g.
+`# This is a comment.`
+`
+
+So
+
+- a program is a sequence of comments and statements
+- (informally) a statement "does something", an expression "evaluates to a
+value"
+- an expression is built up from identifiers, literals and operators
+- an expression can act as and be part of a statement; a statement (e.g. an
+assignment like `x = 1`) is not an expression
+
+### Program Execution
+
+Running a program can be described as a top-down line-by-line processing:
+evaluation of expressions and execution of statements.
+
 ### A Sample Python Program
 
 Here's a simple Python program that calculates the present value of
@@ -260,7 +290,7 @@ a series of cashflows:
 
     === "Code"
 
-        ``` python
+        ```python
         --8<--
         src/present_value.py
         --8<--
@@ -271,15 +301,21 @@ a series of cashflows:
         The present value (PV) of a series of cash flows represents the current
         value of an expected future income stream.
 
+        Think of it like this: if I receive an amount in the future - what 
+        would it be worth today?
+
         Often, the net present value (NPV) of some initial investment
         (principal, at time t=0) and then a series of discounted revenues over
         time (t=1, t=2, ...) is calculated to support investment decisions: an
         NPV > 0 promises an expected net gain or an investment with a higher
         NPV would preferrable to one with a lower NPV.
 
-        The basic PV formula/model assumes a fixed interest rate over time.
-        The future cash flows and the fixed interest rates are usually
-        uncertain i.e. they are predictions or expectations.
+        The basic PV formula/model assumes a fixed "market" interest rate over
+        time. This is a simplification, of course: in reality the future cash
+        flows and/or the interest rates are usually uncertain or at least
+        there's the potential risk of them changing or not materializing.
+        Any model needs to simplify reality, anything that deals with the
+        unknown future needs to make assumptions or expectations.
 
 Running this program yields the following output:
 
@@ -289,41 +325,22 @@ Present value for [-100, -2, 3, 6, 8, 110] and interest rate 0.03:
     pv = 8.371752776288233
 ```
 
-### Python Program Building Blocks
-
-A program is built as a sequence of instructions. The basic building blocks of
-a Python program are:
-
-1. [Expressions](../main-course/grasping-python.md#expressions)
-1. [Operands and Operators](../main-course/grasping-python.md#operands-and-operators)
-1. [Statements](../main-course/grasping-python.md#statements)
-1. [Comments](../main-course/grasping-python.md#comments)
-
-So
-
-- a program is a sequence of comments and statements  
-- a statement is either an 'executable instruction' (**do-something**) or an 'evaluable expression' (**compute-something**)  
-- an expression is built up from operands and operators  
-
-### Program Execution
-
-Running a program can be described as a top-down line-by-line processing:
-evaluation of expressions and execution of statements.
-
 ## Variables and Assignments
 
-Variables are one of the the key elements of programming languages. Allthough
-the implementation may differ, the key concept is the same:
-Providing named access to an area in memory holding data, which can be changed during program execution.
+Variables are one of the key elements of programming languages. Although
+the implementations may differ, the key concept is the same:
+Providing named access to an object in memory.
 
-In Python a variable is a name referencing an object in memory. You can create
-a variable with an assignment-statement:
+In Python a variable is a name referencing an object in memory (i.e. there's
+"names and values").
+
+You can create a variable with an assignment statement:
 
 ``` python
->>> a = 5
+>>> a = 5  # variable 'a' is a name for the value 5 (an object)
 ```
 
-Python variables can be rebound by further assignments.  At different points
+Python variables can be rebound by further assignments. At different points
 in time, the variable may refer to different objects, with different values
 and types of value. This makes Python a dynamically typed language.
 
@@ -333,7 +350,7 @@ and types of value. This makes Python a dynamically typed language.
 5
 >>> type(a) # the object named 'a' is of type 'int'
 <class 'int'>
->>> a = 'foo' # rebind the variable to a different object
+>>> a = 'foo' # rebind the variable (name) 'a' to a different object
 >>> a
 'foo'
 >>> type(a) # 'a' is now the name for an object of type 'str'
@@ -419,28 +436,9 @@ indexes to access the individual characters:
 Like for any other sequence types in Python indexing is zero-based i.e. the
 first character in a string is indexed with `0`.
 
-Strings have powerful formatting support:
-
-Using `str.format`:
-
-``` python
->>> '{} says {}'.format('Peter', 'hi')
-'Peter says hi'
->>> '{person} says {statement}'.format(person='Mary', statement='hey')
-'Mary says hey'
->>>
-```
-
-A bit more oldschool:
-
-``` python
->>> '%s says %s' % ('Paul', 'ho')
-'Paul says ho'
-```
-
-See <https://pyformat.info/> for concise information on these topics.
-
-"f-strings" allow embedding expressions that get replaced with their values:
+Strings have powerful formatting support. In modern Python you usually use
+"f-strings". These allow for embedding expressions that get replaced with their
+values:
 
 ``` python
 >>> name, says = 'Patti', 'yo'
@@ -448,6 +446,28 @@ See <https://pyformat.info/> for concise information on these topics.
 'Patti says yo'
 >>> 
 ```
+
+Older style formatting is done with the `str.format` method:
+
+```python
+>>> '{} says {}'.format('Peter', 'hi')
+'Peter says hi'
+>>> '{person} says {statement}'.format(person='Mary', statement='hey')
+'Mary says hey'
+>>>
+```
+
+The `str.format`variant is especially useful when you want a string *template*
+rather than evaluluating at once.
+
+Even more oldschool:
+
+``` python
+>>> '%s says %s' % ('Paul', 'ho')
+'Paul says ho'
+```
+
+See <https://pyformat.info/> for concise information on these topics.
 
 --8<--
 training/lessons/hello-world/hello-world.md
