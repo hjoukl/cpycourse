@@ -73,6 +73,7 @@ nav:
         - "Classy Animals": training/lessons/classy-animals/classy-animals.md
         - "Rewrite Dict Comprehension": training/lessons/rewrite-dict-comprehension/rewrite-dict-comprehension.md
         - "Send Email": training/lessons/send-mail/send-mail.md
+        - "Send Email 2 Donald": training/lessons/sendmail-2-donald/sendmail-2-donald.md
       - Main Course:
         - "Object Introspection": training/lessons/object-introspection/object-introspection.md
         - "Reverse Word Order": training/lessons/reverse-word-order/reverse-words.md
