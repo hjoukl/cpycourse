@@ -24,10 +24,10 @@ This is how this could look like on a Linux system:
 
 ``` bash
 $ python
-Python 3.6.8 (default, May 31 2023, 10:28:59)
-[GCC 8.5.0 20210514 (Red Hat 8.5.0-18)] on linux
+Python 3.9.21 (main, Dec  5 2024, 00:00:00)
+[GCC 11.5.0 20240719 (Red Hat 11.5.0-2)] on linux
 Type "help", "copyright", "credits" or "license" for more information.
->>>
+>>> 
 ```
 
 You can also use a qualified interpreter version, depending on what's available
@@ -35,9 +35,9 @@ on your machine:
 
 ``` bash
 $ /usr/bin/python3.12
-Python 3.12.5 (main, Dec  3 2024, 00:00:00) [GCC 11.5.0 20240719 (Red Hat 11.5.0-2)] on linux
+Python 3.12.5 (main, Dec  3 2024, 00:00:00)
+[GCC 11.5.0 20240719 (Red Hat 11.5.0-2)] on linux
 Type "help", "copyright", "credits" or "license" for more information.
->>> 
 >>> 
 ```
 
@@ -48,7 +48,7 @@ interpreter:
 
 === "Linux"
 
-    ``` bash
+    ```bash
     $ /usr/bin/python3.12
     ```
 
@@ -81,9 +81,11 @@ interactive Python session.
 
 Start the interpreter as shown and type in your 1.st Python statement. After
 pressing the `<Enter>`-key the interpreter will execute the statement, and in
-this case will show the result.
+this case will show the result:
 
-``` python
+(Note: `print(...)`is Python's output function)
+
+```python
 >>> print("Hello, world!")
 Hello, world!
 >>>
@@ -105,14 +107,14 @@ If you enter a simple expression at the prompt (e.g. an integer or string
 ```
 
 An interactive interpreter session can be stopped by pressing `Ctrl-d` (Linux)
-or `Ctrl-z` (Windows).
+or `Ctrl-z` (plus `Enter`, Windows).
 
 A **summary of the Python interpreter's commandline options** can be listed
 with its help option `-h`. This will display the **usage**, the available
-commandline options and **environment variables** controlling the interpreter.
+options and **environment variables** controlling the interpreter.
 Here's the output of a Python 3 interpreter on Linux:
 
-```
+```bash
 $ python3.12 -h
 usage: python3.12 [option] ... [-c cmd | -m mod | file | -] [arg] ...
 Options (and corresponding environment variables):
@@ -182,6 +184,34 @@ enter "modules spam".
 To quit this help utility and return to the interpreter,
 enter "q" or "quit".
 ```
+
+Python's `help()` function also takes parameters. So you can get help on
+basically any object:
+
+``` python
+>>> help(print)
+Help on built-in function print in module builtins:
+
+print(*args, sep=' ', end='\n', file=None, flush=False)
+    Prints the values to a stream, or to sys.stdout by default.
+    
+    sep
+      string inserted between values, default a space.
+    end
+      string appended after the last value, default a newline.
+    file
+      a file-like object (stream); defaults to the current sys.stdout.
+    flush
+      whether to forcibly flush the stream.
+```
+
+--8<--
+training/lessons/repl/repl.md
+--8<--
+
+--8<--
+training/lessons/command-line-calculation/command-line-calculation.md
+--8<--
 
 ## Running a Python program
 
@@ -258,10 +288,6 @@ $ python3 src/present_value.py
 Present value for [-100, -2, 3, 6, 8, 110] and interest rate 0.03:
     pv = 8.371752776288233
 ```
-
---8<--
-training/lessons/command-line-calculation/command-line-calculation.md
---8<--
 
 ### Python Program Building Blocks
 
