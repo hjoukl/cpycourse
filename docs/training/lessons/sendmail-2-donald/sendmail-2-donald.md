@@ -31,7 +31,7 @@
 
         ??? pied-piper "Simple Python Email client"
 
-            ``` python title="sendmail2-donald.py"
+            ``` python title="sendmail-2-donald.py"
             --8<-- "training/lessons/sendmail2-donald/sendmail-2-donald.py"
             ```
 
