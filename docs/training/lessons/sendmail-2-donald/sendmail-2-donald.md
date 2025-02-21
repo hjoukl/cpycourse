@@ -17,12 +17,12 @@
         Optional: Extend the program to allow email-attachments. For this ask the user to provide a filepath for the attachment.
 
 
-        Expected result: Check your mail-inbox on th your sender-address at https://www.wpoven.com/tools/free-smtp-server-for-testing for the incoming email (opionally with attachment)
+        Expected result: Check your mail-inbox on your sender-address at https://www.wpoven.com/tools/free-smtp-server-for-testing for the incoming email (opionally with attachment)
 
     === "Hints"
 
         - use `input()`-builtin function to get user nickname
-        - use `os.environ`- mapping object from the Python Standard Library, to read environment variables
+        - use `os.environ` from the Python Standard Library, to read environment variables
         - use `smtplib.SMTP`- class from the [smtplib](https://docs.python.org/3/library/smtplib.html) module of the Python Standard Library, to establish a connection to the mailserver
         - use f-string `msg = f'From: {sender}\nTo: {receiver}\nSubject: {subject}\n\n{payload}'`
 

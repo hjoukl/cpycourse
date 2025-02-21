@@ -28,7 +28,7 @@ def main():
         # Ask for nickname to compose the sender email-address
         nickname = input('Please provid your nickname: ')
 
-        # Ask for User to build sender email-adress
+        # Ask for User to compose the sender email-address
         if os.name == 'nt':
             user = os.environ['USERNAME']
         elif os.name == 'posix':
