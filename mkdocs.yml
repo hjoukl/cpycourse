@@ -63,6 +63,7 @@ nav:
       #- Cheatsheet: training/cheatsheet.md
     - Lessons:
       - Tutorial:
+        - "REPL": training/lessons/repl/repl.md
         - "Command Line Calculation": training/lessons/command-line-calculation/command-line-calculation.md
         - "Hello World": training/lessons/hello-world/hello-world.md
         - "List Modification": training/lessons/list-modification/list-modification.md
