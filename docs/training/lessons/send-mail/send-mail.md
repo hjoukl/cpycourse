@@ -53,8 +53,7 @@
 
     === "Solution"
 
-        ??? pied-piper "Simple Python Email client (local domain
-            unauthenticated SMTP)"
+        ??? pied-piper "Simple Python Email client (local domain unauthenticated SMTP)"
 
             This example requires unauthenticated SMTP server access and a 
             local user name that is usable as the email receiver.
@@ -75,8 +74,7 @@
             --8<-- "training/lessons/send-mail/sendmail-compact.ps1"
             ```
 
-        ??? pied-piper "Simple Python TLS Email client (mail provider smtp
-            credentials required)"
+        ??? pied-piper "Simple Python TLS Email client (mail provider smtp credentials required)"
 
             This example shows how to send an email with an SMTP server you
             can connect securely to using TLS, with your own username and
