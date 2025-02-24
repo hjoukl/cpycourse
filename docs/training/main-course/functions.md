@@ -11,7 +11,6 @@ Python objects. Once defined, they can of course get executed (by "calling"
 them). But like any other object they can just as well be assigned to a
 variable, passed as arguments to another callable or used as a return value.
 
-
 ## Function Definition
 
 In Python user-defined functions are created using the `def` statement. A
@@ -19,7 +18,6 @@ function definition is made up of a function header (defining the function name
 and the call signature) and a function body (the implementation of the
 task/calculation as a sequence of statements with an optional return
 statement).
-
 
 **Note:**
 The terms "parameter" and "argument" are often used interchangeably, but this
@@ -121,7 +119,7 @@ Function call omitting the optional parameter:
 ```
   
 Function call overwriting the default value of the optional parameter:
- 
+
 ``` python
 >>> result = increment(1, 5)
 >>> print(result)
@@ -146,7 +144,6 @@ E.g.
 SyntaxError: non-default argument follows default argument
 ```
   
-  
 ## Function with Variable Parameter List (Variadic Parameter)
 
 A function can be defined having a variable args parameter. This is specified
@@ -165,7 +162,6 @@ Function definition:
 >>>
 ```
 
-
 Varargs function call:
 
 ```python
@@ -177,7 +173,7 @@ World
 <--
 >>>
 ```
-    
+
 Varargs function call with more args:
 
 ``` python
@@ -231,7 +227,6 @@ Function call using multiple keyword parameters:
 When (only) using keyword arguments the positions of the call arguments don't
 matter.
 
-
 ## Functions with Variable Args and Variable Keyword Args
 
 Python allows function definitions with arbitray additional keyword parameters.
@@ -250,7 +245,7 @@ Function definition with variable keyword parameters:
 ...     print(footer)
 ... 
 >>> 
-``` 
+```
 
 Function call:
 
@@ -267,8 +262,8 @@ belonging_to: EU
 ```
 
 A note on naming: By convention, the variable positional and keyword arg
-parameters are usually called `*args` and `**kwargs`. But this is not strictly 
-necessary and you can (and should) name them differently when it's more 
+parameters are usually called `*args` and `**kwargs`. But this is not strictly
+necessary and you can (and should) name them differently when it's more
 appropriate, to best communicate/document your function's behaviour.
 
 ## Function Return Value
@@ -383,34 +378,33 @@ function object.
 
 For a more detailed inforamtions please refer to [PEP 3107 -- Function
 Annotations](https://www.python.org/dev/peps/pep-3107/) and [PEP 484 -- Type
-Hints ](https://www.python.org/dev/peps/pep-0484/).
+Hints](https://www.python.org/dev/peps/pep-0484/).
 
 **Notes:**
 
- - Function annotations are optional, they are just informations. They are
+- Function annotations are optional, they are just informations. They are
    neither evaluated nor enforced by the interpreter itself. The language
    feature exists to help other tools, e.g. to do type checking as static code
    analysis.
- - The Python standard library provides "type hinting support" in the
+- The Python standard library provides "type hinting support" in the
    [`typing`](https://docs.python.org/3/library/typing.html) module.
-
 
 ## Python Function Call Semantics
 
 Traditional function call semantics are:
 
-1. Call-by-value: 
+1. Call-by-value:
 
- - the value of the argument variable is copied to the call parameter of the function
- - changing the value inside the function doesn't effect the caller
+- the value of the argument variable is copied to the call parameter of the function
+- changing the value inside the function doesn't effect the caller
 
-2. Call-by-reference: 
+2. Call-by-reference:
 
- - a reference of the caller's variable is passed to the call parameter of the
+- a reference of the caller's variable is passed to the call parameter of the
    function
- - as a consequence, changes to the variable inside the function will affect
-   the callers variable (side effect from callee back to the caller) 
- - alongside the function return value, this provides additional communication
+- as a consequence, changes to the variable inside the function will affect
+   the callers variable (side effect from callee back to the caller)
+- alongside the function return value, this provides additional communication
    channels between caller and callee (since the changes made inside the
    function can be seen on/provided to the outside)
 
@@ -456,7 +450,7 @@ caller's function call arguments:
 **Note:**
 Immutable objects of the caller are not affected by changes made by the callee
 (the called function).
- 
+
 **Function call with mutable call argument:**
 
 ``` python
@@ -483,7 +477,7 @@ Immutable objects of the caller are not affected by changes made by the callee
 
 **Note:**
 Function calls with mutable object arguments may have side effects to the
-caller - if the called function modifies a mutable object. 
+caller - if the called function modifies a mutable object.
 
 ## Anonymous Functions
 
@@ -504,7 +498,7 @@ for the creation of (simple) anonymous functions:
 >>> 
 ```
 
-These function definitions are equivalent, apart from `func.__name__`: 
+These function definitions are equivalent, apart from `func.__name__`:
 
 ``` python
 >>> square = lambda x: x**2
@@ -550,20 +544,141 @@ functions "inline" or as arguments, e.g.:
 [Functional programming](https://en.wikipedia.org/wiki/Functional_programming)
 usually builds upon some of these characteristics:
 
- - (pure) functions do not hold internal state (nor are they able to modify
+- (pure) functions do not hold internal state (nor are they able to modify
    external state and produce side effects)
- - usage of recursion
- - higher order functions (basically: functions taking other functions as
+- usage of recursion
+- higher order functions (basically: functions taking other functions as
    arguments to apply/combine/compose them and/or produce new functions)
 
 Python has several features in support of this:
 
- - functions are 1st class objects
- - lambda functions
- - the `map` and `filter` built-ins and `functools.reduce`
- - the `functools` and `itertools` modules
- - iterators
+- functions are 1st class objects
+- lambda functions
+- the `map` and `filter` built-ins and `functools.reduce`
+- the `functools` and `itertools` modules
+- iterators
 
 Find more information on Python's approach to functional programming in the
 [Functional Programming
 HOWTO](https://docs.python.org/3/howto/functional.html).
+
+## Assorted Built-in Functions
+
+Python features a number of essential [built-in
+functions](https://docs.python.org/3/library/functions.html). Here's an
+assorted selection of frequently used ones:
+
+```
+----------------------------------------------------------------------
+abs(x)
+# Return the absolute value of number `x`
+
+----------------------------------------------------------------------
+all(iterable)
+# Return True if all elements in `iterable` are true or `iterable` is empty.
+
+----------------------------------------------------------------------
+any(iterable)
+# Return True if any element in `iterable` is true. Returns False ff the iterable is empty.
+
+----------------------------------------------------------------------
+callable(object)
+# Return True if `object` is callable.
+
+----------------------------------------------------------------------
+chr(i)
+# Return the character for integer unicode code point i.
+
+----------------------------------------------------------------------
+delattr(object, name)
+# Delete attribute `name` from `object`.
+
+----------------------------------------------------------------------
+dir()
+dir(object)
+# Return the list of names in the local scope (without arguments) or the list of `object` attributes.
+
+----------------------------------------------------------------------
+enumerate(iterable, start=0)
+# Return an enumerate iterator object that yields (index, value) tuples when iterated over.
+# Warning: evaluates arbitrary code.
+
+----------------------------------------------------------------------
+eval(source, /, globals=None, locals=None)
+# Evaluate expression and return the result. Source can be a string or code object.
+
+----------------------------------------------------------------------
+exec(source, /, globals=None, locals=None, *, closure=None)
+# Execute `source` (string or code object).
+# Warning: execture arbitrary code.
+
+----------------------------------------------------------------------
+getattr(object, name)
+getattr(object, name, default)
+# Return the value of object's name attribute or `default`. Raises if
+
+----------------------------------------------------------------------
+hasattr(object, name)
+# Return True if `object` has attribute `name`, False otherwise.
+
+----------------------------------------------------------------------
+input()
+input(prompt)
+# Read and return input from stdin.
+
+----------------------------------------------------------------------
+len(s)
+# Return the length of an object (i.e. the number of items in `object`). 
+
+----------------------------------------------------------------------
+map(function, iterable, *iterables)
+# Apply `function` to each element in `iterable`. If n iterables are given, `function` must take n arguments
+# and is applied to all iterables in parallel.
+
+----------------------------------------------------------------------
+max(iterable, *, key=None)
+max(iterable, *, default, key=None)
+max(arg1, arg2, *args, key=None)
+# Return the maximum value in `iterable` (or of args).
+
+----------------------------------------------------------------------
+min(iterable, *, key=None)
+min(iterable, *, default, key=None)
+min(arg1, arg2, *args, key=None)
+# Return the minimun value in `iterable` (or args args).
+
+----------------------------------------------------------------------
+open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)
+# Open a file and return the file object.
+
+----------------------------------------------------------------------
+ord(c)
+# Return the unicode codepoint integer value of character `c`.
+
+----------------------------------------------------------------------
+pow(base, exp, mod=None)
+# Return base**exp (optionally modulo `mod`).
+
+----------------------------------------------------------------------
+print(*objects, sep=' ', end='\n', file=None, flush=False)
+# Print objects. Output defaults to stdout.
+
+----------------------------------------------------------------------
+reversed(seq)
+# Return an iterator over `seq` in reverse order.
+
+----------------------------------------------------------------------
+round(number, ndigits=None)
+# Return `number` rounded to `ndigits` precision after the decimal point. 
+
+----------------------------------------------------------------------
+sum(iterable, /, start=0)
+# Return the sum of elements in `iterable`.
+
+----------------------------------------------------------------------
+zip(*iterables, strict=False)
+# Return an iterator of (l1[i], l2[i], ..., ln[i]) tuples of `iterables` l1, ..., ln.
+```
+
+```
+```
