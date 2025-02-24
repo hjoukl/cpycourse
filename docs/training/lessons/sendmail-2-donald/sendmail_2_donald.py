@@ -32,7 +32,7 @@ class MailServer:
             pass
 
     def send_mail(self, sender, receivers, subject, content=''):
-        """Send an email message from sender address `sender`to recipients in 
+        """Send an email message from sender address `sender`to recipients in
         `receivers`.
         """
         receivers_str = ', '.join(receivers)
