@@ -42,6 +42,6 @@ Take a look at [what this is all about](python/python.md) first.
 
 Or, dive right into the [tutorial introduction](training/tutorial/tutorial.md).
 
-You'll encounter simple lessons throughout the tutorial and the ["main
-course"](training/main-course/main-course.md) that details tutorial
+You'll encounter simple lessons throughout the tutorial and the [Main
+Course](training/main-course/main-course.md) that details tutorial
 informations, and more. All lessons can also be found in the lessons overview.
