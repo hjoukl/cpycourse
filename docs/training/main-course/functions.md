@@ -679,6 +679,3 @@ sum(iterable, /, start=0)
 zip(*iterables, strict=False)
 # Return an iterator of (l1[i], l2[i], ..., ln[i]) tuples of `iterables` l1, ..., ln.
 ```
-
-```
-```
