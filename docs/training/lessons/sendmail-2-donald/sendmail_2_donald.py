@@ -67,6 +67,11 @@ def main():
         mail_server = MailServer(smtp_host)
         mail_server.send_mail(sender, receivers, subject, msg_payload)
 
+        print(
+            f'Check inbox at '
+            f'https://www.wpoven.com/tools/free-smtp-server-for-testing for '
+            f'mail (with receiver {receiver} or sender {sender} address)'
+            )
         del mail_server  # For illustration purposes - goes out of scope anyway
 
     except Exception as e:
