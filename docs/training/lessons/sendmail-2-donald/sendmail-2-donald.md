@@ -5,7 +5,7 @@
         Send an email to Donald!
 
         No, not *that* Donald.
-        
+
         At program start ask the user to provide
 
         - a nickname
@@ -25,7 +25,7 @@
         Expected result: Run the program, provide the required input and check
         the mail inbox at
         https://www.wpoven.com/tools/free-smtp-server-for-testing for the
-        email. You can use either the sending or the receiving address to 
+        email. You can use either the sending or the receiving address to
         access the inbox.
 
         Optional: Extend the program to allow email attachments. Ask the user
@@ -45,8 +45,10 @@
 
     === "Solution"
 
-        ??? pied-piper "Simple Python Email client"
+        ??? pied-piper "Simple Python Free SMTP Server Email Client"
 
             ``` python title="sendmail_2_donald.py"
             --8<-- "training/lessons/sendmail-2-donald/sendmail_2_donald.py"
             ```
+
+            [:material-file-download:](sendmail_2_donald.py)

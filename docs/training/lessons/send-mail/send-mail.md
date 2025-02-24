@@ -22,12 +22,13 @@
           course" and the email body content "Currently working on ...", from a
           synthetic email sender address e.g. "test.test@python-course.de"
 
-        Optional: Extend the program to allow email attachments. Ask the user
-        to provide a filepath for the attachment.
-
         Expected result: Check your email account for the incoming email
         (optionally with attachment). An email with above sender, recipients,
         subject and message body should be there.
+
+        Optional: Extend the program to allow email attachments. Ask the user
+        to provide a filepath for the attachment. You should receive an email
+        complete with the attachment.
 
     === "Hints"
 
