@@ -1,4 +1,4 @@
-!!! question "Lesson: Command Line Calculation"
+!!! question "Lesson: REPL"
 
     === "Task"
     
@@ -9,7 +9,7 @@
 
     === "Hints"
 
-        Perform the task in an interative Python session (the "REPL"), on the
+        Perform the task in an interactive Python session (the "REPL"), on the
         command line.
 
         Taking user input is built-in Python functionality. Try `builtins` in
@@ -17,8 +17,8 @@
 
         This is quite a long help documentation page. It is "paged" and you can
         move inside the document. Use blank/space to move forward, and `b` to
-        move back. To search for a specific text use  `/` followed by the text,
-        plus `Enter`. You can also use `q` to quit the help system.
+        move back. To search for a specific text type  `/` (slash) followed by
+        the text, plus `Enter`. You can also use `q` to quit the help system.
 
     === "Solution"
 

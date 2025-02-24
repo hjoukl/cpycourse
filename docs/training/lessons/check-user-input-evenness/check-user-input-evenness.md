@@ -1,9 +1,10 @@
 !!! question "Lesson: Check User Input Evenness"
-   
+
     === "Task"
         
         Create a small Python program that reads an integer value from user
-        input and prints if the input value is even or odd.
+        input and prints if the input value is even (i.e. divisible by 2) or
+        odd (not divisible by 2 without a remainder).
 
     === "Hints"
         

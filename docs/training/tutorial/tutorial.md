@@ -114,7 +114,7 @@ with its help option `-h`. This will display the **usage**, the available
 options and **environment variables** controlling the interpreter.
 Here's the output of a Python 3 interpreter on Linux:
 
-```bash
+```
 $ python3.12 -h
 usage: python3.12 [option] ... [-c cmd | -m mod | file | -] [arg] ...
 Options (and corresponding environment variables):
@@ -278,7 +278,7 @@ assignment like `x = 1`) is not an expression
 
 ### Program Execution
 
-Running a program can be described as a top-down line-by-line processing:
+Running a program can be described as a top-down, line-by-line processing:
 evaluation of expressions and execution of statements.
 
 ### A Sample Python Program
@@ -898,10 +898,6 @@ statement comes in handy:
 
 `pass` is basically a "no-op".
 
---8<--
-training/lessons/check-user-input-evenness/check-user-input-evenness.md
---8<--
-
 #### match Statements
 
 Python 3.10 introduced the `match` statement. It's a powerful
@@ -911,7 +907,7 @@ to variable names.
 
 In that sense, it can also be viewed as a choice construct. Superficially it
 looks similar to switch-case constructs in other languages, and it can also
-be used to implement the simpler `if-elif-else` logic:
+be used to implement simple `if-elif-else` logic:
 
 ``` python
 >>> a = 4
@@ -928,7 +924,11 @@ be used to implement the simpler `if-elif-else` logic:
 a is neither 1, 2 nor 3
 ```
 
-This tutorial won't go into the details of the `match` statement.
+However you'd probably stick with `if-elif-else` for such simple cases.
+
+--8<--
+training/lessons/check-user-input-evenness/check-user-input-evenness.md
+--8<--
 
 #### Conditional Expressions
 
@@ -941,7 +941,7 @@ Python also supports
 >>> 
 ```
 
-Being an expression a conditional expression can be written on the right hand
+Being an expression, a conditional expression can be written on the right hand
 side of an assignment:
 
 ``` python
@@ -998,6 +998,10 @@ Example:
 3
 >>>
 ```
+
+--8<--
+training/lessons/roll-the-dice/roll-the-dice.md
+--8<--
 
 ## Functions
 
@@ -1141,6 +1145,10 @@ caught [Errno 2] No such file or directory: 'myfile.txt'
 
 An exception will "travel" up the call stack until caught, or otherwise
 interrupt the running program.
+
+--8<--
+training/lessons/exceptional-behaviour/exceptional-behaviour.md
+--8<--
 
 ## Modules & Packages
 
