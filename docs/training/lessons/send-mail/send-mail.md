@@ -7,12 +7,16 @@
         On program start ask the user to provide
 
         - an SMTP server address (the mail sender host)
-        - email recipient domain name (e.g. `example.org`)
+        - alternatively:
+          - (with a local/corporate smtp server and users) the email
+            recipient's domain name (e.g. `example.org`), and get her username
+            from the shell environment.
+          - (with a mail provider of your choice where you have a working mail
+            account) the email smtp username and password, the sender email
+            address and a recipient email address
 
         Afterwards
 
-        - get the username from the shell environment variable 'USERNAME'
-          (Windows) or 'USER' (Linux) to prepare your recipient email address
         - create a connection to the mail host
         - send yourself an email with the subject "Hello from the Python 
           course" and the email body content "Currently working on ...", from a
@@ -27,10 +31,12 @@
 
     === "Hints"
 
-        - use `input()` built-in function to get user informations
-        - use `os.environ` mapping object from the Python Standard Library, to
+        - use the `input()` built-in function to get user informations
+        - use `os.environ` mapping object from the Python Standard Library to
           read environment variables
-        - use `smtplib.SMTP` class from the [smtplib](
+          - you can use the environment variable 'USERNAME' on Windows or 'USER'
+            on Linux/Unix
+        - use the `smtplib.SMTP` class from the [smtplib](
           https://docs.python.org/3/library/smtplib.html) module of the Python
           Standard Library, to establish a connection to the mail server
         - alternatively, use `smtplib.SMTP_SSL` class for secure connections
@@ -43,14 +49,15 @@
 
         - use the `email.message.EmailMessage` class from the [email](
           https://docs.python.org/3/library/email.html) Python Standard Library
-          module to create the email message.
+          module to construct the email message in a more structured approach.
 
     === "Solution"
 
-        ??? pied-piper "Simple Python Email client"
+        ??? pied-piper "Simple Python Email client (local domain
+            unauthenticated SMTP)"
 
             This example requires unauthenticated SMTP server access and a 
-            local user name that is usable as E-Mail receiver.
+            local user name that is usable as the email receiver.
 
             ``` python title="sendmail_compact.py"
             --8<-- "training/lessons/send-mail/sendmail_compact.py"
@@ -68,7 +75,8 @@
             --8<-- "training/lessons/send-mail/sendmail-compact.ps1"
             ```
 
-        ??? pied-piper "Simple Python TLS Email client"
+        ??? pied-piper "Simple Python TLS Email client (mail provider smtp
+            credentials required)"
 
             This example shows how to send an email with an SMTP server you
             can connect securely to using TLS, with your own username and
@@ -87,7 +95,7 @@
         ??? pied-piper "Python Email client using 'MailServer' class"
 
             This example requires unauthenticated SMTP server access and a 
-            local user name that is usable as E-Mail receiver.
+            local user name that is usable as the email receiver.
 
             ``` python title="sendmail.py"
             --8<-- "training/lessons/send-mail/sendmail.py"
@@ -107,6 +115,9 @@
 
 
         ??? pied-piper "Python Email client enabled for email attachments"
+
+            This example requires unauthenticated SMTP server access and a 
+            local user name that is usable as the email receiver.
 
             ``` python title="sendmail_with_attachment.py"
             --8<-- "training/lessons/send-mail/sendmail_with_attachment.py"
