@@ -132,4 +132,4 @@ markdown_extensions:
       alternate_style: true
   - pymdownx.tilde
 
-copyright: Copyright &copy; 2020-2023 The <a href="/about/cpycourse-contributors.md">Cpycourse Contributors</a>.
+copyright: Copyright &copy; 2020-2025 The <a href="/about/cpycourse-contributors.md">Cpycourse Contributors</a>.
