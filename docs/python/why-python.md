@@ -48,23 +48,22 @@ image](https://www.blog.pythonlibrary.org/2019/04/11/python-used-to-take-photo-o
 in 2019 and [NASA's 2021 Mars
 mission](https://discuss.python.org/t/python-is-running-on-mars/8312/1).
 
-
 ## It has many applications
 
 Python is
 
- - useful in many domains, from simple scripts to building web applications to
+- useful in many domains, from simple scripts to building web applications to
    image processing, number crunching and data science (and many many more)
- - an excellent "glue language":
-     - easy integration of C/C++ code (or Rust, Go, Fortran, ...)
- - a great rapid prototyping language:
-     - succinct
-     - no lengthy compilation
-     - a lot of "batteries included": its extensive [standard
+- an excellent "glue language":
+  - easy integration of C/C++ code (or Rust, Go, Fortran, ...)
+- a great rapid prototyping language:
+  - succinct
+  - no lengthy compilation
+  - a lot of "batteries included": its extensive [standard
        library](https://docs.python.org/3/library/index.html) provides a wide
        variety of tooling, out-of-the-box[^stdlib-restricted-env]
- - extensible, i.e. in the need for speed you can write performance critical
-   code as e.g. a C extension (but more often than not Python is just fast 
+- extensible, i.e. in the need for speed you can write performance critical
+   code as e.g. a C extension (but more often than not Python is just fast
    enough, anyway)
 
 [^stdlib-restricted-env]:
@@ -73,8 +72,8 @@ Python is
 
 ## It has excellent documentation & a great community
 
-Simply take at look at https://docs.python.org/ and
-https://www.python.org/community/.
+Simply take at look at <https://docs.python.org/> and
+<https://www.python.org/community/>.
 
 The wider Python open source community delivers many world class 3rd party
 packages, usually available through the Python Package Index
@@ -83,45 +82,48 @@ packages, usually available through the Python Package Index
 ## It is widely used & usage is growing rapidly
 
 - Currently the fastest growing / dominant language? Python
-    - ranks no. 1 on the [TIOBE Index](https://www.tiobe.com/tiobe-index/)
-      (08/2023)
-    - ranks no. 1 on the [PYPL PopularitY of Programming Language](http://pypl.github.io/PYPL.html) index (09/2023)
-    - ranks no. 2 (behind JavaScript) on the [Redmonk Programming Language Rankings](https://redmonk.com/sogrady/2023/05/16/language-rankings-1-23/) (01/2023)
-    - ranks no. 2 (behind JavaScript) in the [GitHub octoverse report top languages](https://octoverse.github.com/2022/top-programming-languages) (2022)
+  - ranks no. 1 on the [TIOBE Index](https://www.tiobe.com/tiobe-index/)
+  (02/2025)
+  - ranks no. 1 on the [PYPL PopularitY of Programming
+  Language](http://pypl.github.io/PYPL.html) index (02/2025)
+  - ranks no. 2 (behind JavaScript) on the [Redmonk Programming Language
+  Rankings](https://redmonk.com/sogrady/2024/09/12/language-rankings-6-24/)
+  (06/2024)
+  - overtakes JavaScript in the [GitHub octoverse report top
+  languages](https://github.blog/news-insights/octoverse/octoverse-2024/)
+  (2024)
 - huge uptake since around 2012-2014 in the scientific community and data
   science:
-    - machine learning
-    - AI
-    - statistical computing
+  - machine learning
+  - AI
+  - statistical computing
 - known to e.g. replace R and Matlab applications due to being
-    - user friendly and easy to learn,
-    - more flexible, extensible & general-purpose (i.e. apart from the data
+  - user friendly and easy to learn,
+  - more flexible, extensible & general-purpose (i.e. apart from the data
       science-specific necessities the huge Python ecosystem of standard
       library and 3rd party libraries is at your hands)
-    - used by a large and growing community
-- may soon be the primary language of choice in the data science field (if it
-  isn't already)
-
+  - used by a large and growing community
+- as of 2025 is the primary language of choice in the AI and data science field
 
 ## It is (arguably) the most readable programming language (for many)
+
 (Take this with more than a grain of salt - beauty is all in the eye of the
 beholder :wink:)
 
 Readability is key:
 
- - source code is read *way* more often than written (as in: reading other
-   people's code for learning or review, reading your own code for 
+- source code is read *way* more often than written (as in: reading other
+   people's code for learning or review, reading your own code for
    refactoring/debugging/understanding what you did last month, ...)
- - Python is "executable pseudocode" (to some):
+- Python is "executable pseudocode" (to some):
         ``` python
         # pseudocode
         x := 1
         IF x > 0 THEN
-            print "positive" 
+            print "positive"
         ELSE
-            print "negative or 0" 
+            print "negative or 0"
         END IF
-
 
         # python
         x = 1
@@ -130,12 +132,11 @@ Readability is key:
         else:
             print("negative or 0")
         ```
- - Python uses significant whitespace (indentation) for grouping code blocks
-   (rather than {} braces), which makes it very readable for most 
+- Python uses significant whitespace (indentation) for grouping code blocks
+   (rather than {} braces), which makes it very readable for most
    people[^python-whitespace]
 
 [^python-whitespace]: Though there's die-hard non-believers that will always hate this :wink:
-
 
 ### Some "Hello, world!" examples
 
