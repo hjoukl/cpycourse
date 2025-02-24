@@ -43,7 +43,7 @@ class MailServer:
             f'Subject: {subject}\n\n'
             f'{content}'
             )
-        print(f'\nEmail\n<<<\n{msg}\n>>>\n')
+        print(f'\nEmail:\n<<<\n{msg}\n>>>\n')
 
         self.mailserver.sendmail(sender, receivers, msg)
 
