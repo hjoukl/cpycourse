@@ -2,36 +2,51 @@
 
     === "Task"
 
-        Send yourself an Email
-        
-        On program-start ask, the user to provide
+        Send an email to Donald!
 
-        - Nickname
+        No, not *that* Donald.
+        
+        At program start ask the user to provide
+
+        - a nickname
 
         Afterwards
 
-        - get the username from the shell enivronment variable 'USERNAME' (Windows) or 'USER' (Linux) to prepare your email-address
-        - create a connection to the mail-host 'smtp.freesmtpservers.com'
-        - send an email to 'donald.duck@test.com with the subject "Hello from the Python-Course" and the content = "Currently working on ..." from a synthetic email sender-address e.g. "f{user}.{nickname}@pycource.com"  (Python f-string notation)
+        - get the username from the shell environment variable
+          'USERNAME' (Windows) or 'USER' (Linux) to prepare your
+          email-address
+        - create a connection to the SMTP mail host
+          `smtp.freesmtpservers.com`
+        - send an email to 'donald.duck@test.com with the subject "Hello from
+          the Python Course" and the content "Currently working on ..." from a
+          synthetic email sender address (e.g.
+          `f"{user}.{nickname}@pycourse.com"` (Python f-string notation))
 
-        Optional: Extend the program to allow email-attachments. For this ask the user to provide a filepath for the attachment.
+        Expected result: Run the program, provide the required input and check
+        the mail inbox at
+        https://www.wpoven.com/tools/free-smtp-server-for-testing for the
+        email. You can use either the sending or the receiving address to 
+        access the inbox.
 
-
-        Expected result: Check your mail-inbox on your sender-address at https://www.wpoven.com/tools/free-smtp-server-for-testing for the incoming email (opionally with attachment)
+        Optional: Extend the program to allow email attachments. Ask the user
+        to provide a filepath for the attachment.
 
     === "Hints"
 
-        - use `input()`-builtin function to get user nickname
-        - use `os.environ` from the Python Standard Library, to read environment variables
-        - use `smtplib.SMTP`- class from the [smtplib](https://docs.python.org/3/library/smtplib.html) module of the Python Standard Library, to establish a connection to the mailserver
-        - use f-string `msg = f'From: {sender}\nTo: {receiver}\nSubject: {subject}\n\n{payload}'`
-
+        - use the `input()` built-in function to get a user nickname
+        - use `os.environ` from the Python Standard Library to read environment
+          variables
+        - use the `smtplib.SMTP`- class from the [smtplib](
+          https://docs.python.org/3/library/smtplib.html) Python Standard
+          Library module, to establish a connection to the mail server
+        - use the `STMP`object's `send_mail` method; you need to construct an
+          appropriate `msg` argument, e.g. using f-strings:
+          `msg = f'From: {sender}\nTo: {receiver}\nSubject: {subject}\n\n{payload}'`
 
     === "Solution"
 
         ??? pied-piper "Simple Python Email client"
 
-            ``` python title="sendmail-2-donald.py"
-            --8<-- "training/lessons/sendmail-2-donald/sendmail-2-donald.py"
+            ``` python title="sendmail_2_donald.py"
+            --8<-- "training/lessons/sendmail-2-donald/sendmail_2_donald.py"
             ```
-

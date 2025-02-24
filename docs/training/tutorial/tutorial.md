@@ -1318,6 +1318,20 @@ A **set comprehension** can be used to create a set from an iterable:
 >>> 
 ```
 
+## Wrapping Up
+
+Congratulations! You've pretty much made it through the tutorial. Reward
+yourself by sending a friendly little electronic letter to yourself, or
+Donald. :wink:
+
+--8<--
+training/lessons/sendmail-2-donald/sendmail-2-donald.md
+--8<--
+
+--8<--
+training/lessons/send-mail/send-mail.md
+--8<--
+
 ## Conclusion
 
 This concludes the tutorial material! While not having touched on each and
