@@ -976,7 +976,21 @@ Example:
 >>>
 ```
 
-`for` loops operate on *iterables* - something which can be iterated on.
+`for` loops operate on *iterables* - something which can be iterated on, for
+example sequences (e.g. lists, tuples, strings).
+
+Regularly, `for` loops are used with `range` objects. These are iterables that
+are convenient for expressing a count:
+
+``` python
+>>> for elem in range(3):  # range(3) "produces" values 0, 1, 2 for iteration
+...     print(elem)
+... 
+0
+1
+2
+>>>
+```
 
 #### while Statement
 
