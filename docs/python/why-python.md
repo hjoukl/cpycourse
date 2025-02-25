@@ -55,13 +55,13 @@ Python is
 - useful in many domains, from simple scripts to building web applications to
   image processing, number crunching and data science (and many many more)
 - an excellent "glue language":
-  - easy integration of C/C++ code (or Rust, Go, Fortran, ...)
+    - easy integration of C/C++ code (or Rust, Go, Fortran, ...)
 - a great rapid prototyping language:
-  - succinct
-  - no lengthy compilation
-  - a lot of "batteries included": its extensive [standard
-    library](https://docs.python.org/3/library/index.html) provides a wide
-    variety of tooling, out-of-the-box[^stdlib-restricted-env]
+    - succinct
+    - no lengthy compilation
+    - a lot of "batteries included": its extensive [standard
+      library](https://docs.python.org/3/library/index.html) provides a wide
+      variety of tooling, out-of-the-box[^stdlib-restricted-env]
 - extensible, i.e. in the need for speed you can write performance critical
   code as e.g. a C extension (but more often than not Python is just fast
   enough, anyway)
