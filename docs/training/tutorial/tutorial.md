@@ -883,10 +883,10 @@ a is neither 1, 2 nor 3
 >>>
 ```
 
-``` python
 If you don't want to do anything in a choice execution branch the `pass`
 statement comes in handy:
 
+``` python
 >>> today = "Saturday"
 >>> if today in ("Monday", "Tuesday", "Wednesdy", "Thursday", "Friday"):
 ...     print("Working hard!")
