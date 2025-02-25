@@ -82,27 +82,27 @@ packages, usually available through the Python Package Index
 ## It is widely used & usage is growing rapidly
 
 - Currently the fastest growing / dominant language? Python
-  - ranks no. 1 on the [TIOBE Index](https://www.tiobe.com/tiobe-index/)
-  (02/2025)
-  - ranks no. 1 on the [PYPL PopularitY of Programming
-  Language](http://pypl.github.io/PYPL.html) index (02/2025)
-  - ranks no. 2 (behind JavaScript) on the [Redmonk Programming Language
-  Rankings](https://redmonk.com/sogrady/2024/09/12/language-rankings-6-24/)
-  (06/2024)
-  - overtakes JavaScript in the [GitHub octoverse report top
-  languages](https://github.blog/news-insights/octoverse/octoverse-2024/)
-  (2024)
+    - ranks no. 1 on the [TIOBE Index](https://www.tiobe.com/tiobe-index/)
+      (02/2025)
+    - ranks no. 1 on the [PYPL PopularitY of Programming
+      Language](http://pypl.github.io/PYPL.html) index (02/2025)
+    - ranks no. 2 (behind JavaScript) on the [Redmonk Programming Language
+      Rankings](https://redmonk.com/sogrady/2024/09/12/language-rankings-6-24/)
+      (06/2024)
+    - overtakes JavaScript in the [GitHub octoverse report top
+      languages](https://github.blog/news-insights/octoverse/octoverse-2024/)
+      (2024)
 - huge uptake since around 2012-2014 in the scientific community and data
   science:
-  - machine learning
-  - AI
-  - statistical computing
+    - machine learning
+    - AI
+    - statistical computing
 - known to e.g. replace R and Matlab applications due to being
-  - user friendly and easy to learn,
-  - more flexible, extensible & general-purpose (i.e. apart from the data
+    - user friendly and easy to learn,
+    - more flexible, extensible & general-purpose (i.e. apart from the data
       science-specific necessities the huge Python ecosystem of standard
       library and 3rd party libraries is at your hands)
-  - used by a large and growing community
+    - used by a large and growing community
 - as of 2025 is the primary language of choice in the AI and data science field
 
 ## It is (arguably) the most readable programming language (for many)
