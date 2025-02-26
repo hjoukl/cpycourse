@@ -17,7 +17,7 @@ def main():
             user = os.environ['USERNAME']
         elif os.name == 'posix':
             user = os.environ['USER']
-        
+
         sender = 'test.test@python-course.de'
         subject = 'Python Course Test SMTP E-Mail'
         msg_payload= 'This is a test E-Mail.'
@@ -32,7 +32,7 @@ def main():
             )
 
         print(f'\nEmail\n<<<\n{msg}\n>>>\n')
-        
+
         mail_server = smtplib.SMTP(smtp_host)
         mail_server.sendmail(sender, receivers, msg)
 

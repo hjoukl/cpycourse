@@ -10,17 +10,19 @@
         - alternatively:
           - (with a local/corporate smtp server and users) the email
             recipient's domain name (e.g. `example.org`), and get her username
-            from the shell environment.
+            from the shell environment (a)
           - (with a mail provider of your choice where you have a working mail
             account) the email smtp username and password, the sender email
-            address and a recipient email address
+            address and a recipient email address (b)
 
         Afterwards
 
         - create a connection to the mail host
         - send yourself an email with the subject "Hello from the Python 
           course" and the email body content "Currently working on ...", from a
-          synthetic email sender address e.g. "test.test@python-course.de"
+          valid email sender address (e.g. <username>@<domain> in variant (a)
+          or <your mail address> e.g. max.mustermann@example.org in case of
+          (b))
 
         Expected result: Check your email account for the incoming email
         (optionally with attachment). An email with above sender, recipients,
@@ -33,15 +35,18 @@
     === "Hints"
 
         - use the `input()` built-in function to get user informations
-        - use `os.environ` mapping object from the Python Standard Library to
+        - case (a): use `os.environ` mapping object from the Python Standard Library to
           read environment variables
           - you can use the environment variable 'USERNAME' on Windows or 'USER'
             on Linux/Unix
-        - use the `smtplib.SMTP` class from the [smtplib](
+        - use the `smtplib.SMTP_SSL` class from the [smtplib](
           https://docs.python.org/3/library/smtplib.html) module of the Python
-          Standard Library, to establish a connection to the mail server
-        - alternatively, use `smtplib.SMTP_SSL` class for secure connections
-          (e.g. if you want to try and access your mail providers SMTP server)
+          Standard Library, for a secure connection to the SMTP server (e.g. if
+          you want to try and access your mail providers SMTP server)
+            - use `STMP_SSL.login` to login with your mailbox credentials 
+        - alternatively, use the `smtplib.SMTP` class; be warned that this is
+          insecure and you should not send username + password credentials over
+          such insecure connections(!)
         - use the `STMP`object's `send_mail` method; you need to construct an
           appropriate `msg` argument, e.g. using f-strings:
           `msg = f'From: {sender}\nTo: {receiver}\nSubject: {subject}\n\n{payload}'`

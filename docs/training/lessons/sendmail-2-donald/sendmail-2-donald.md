@@ -17,10 +17,10 @@
           email-address
         - create a connection to the SMTP mail host
           `smtp.freesmtpservers.com`
-        - send an email to 'donald.duck@test.com with the subject "Hello from
+        - send an email to "donald.duck@test.com" with the subject "Hello from
           the Python Course" and the content "Currently working on ..." from a
-          synthetic email sender address (e.g.
-          `f"{user}.{nickname}@pycourse.com"` (Python f-string notation))
+          fictional email sender address (`f"{user}.{nickname}@pycourse.com"`
+          (Python f-string notation))
 
         Expected result: Run the program, provide the required input and check
         the mail inbox at

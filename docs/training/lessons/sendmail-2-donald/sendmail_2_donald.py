@@ -22,12 +22,12 @@ def username():
 
 class MailServer:
     def __init__(self, smtp_host, port=25):
-        self.mailserver = smtplib.SMTP(smtp_host, port=port)
-        #self.mailserver.set_debuglevel(1)
+        self.smtp = smtplib.SMTP(smtp_host, port=port)
+        #self.smtp.set_debuglevel(1)
 
     def __del__(self):
         try:
-            self.mailserver.quit()
+            self.smtp.quit()
         except:
             pass
 
@@ -45,7 +45,7 @@ class MailServer:
             )
         print(f'\nEmail:\n<<<\n{msg}\n>>>\n')
 
-        self.mailserver.sendmail(sender, receivers, msg)
+        self.smtp.sendmail(sender, receivers, msg)
 
 
 def main():
