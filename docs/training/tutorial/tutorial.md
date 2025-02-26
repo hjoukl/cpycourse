@@ -758,7 +758,7 @@ For historical reasons (early Python didn't have a dedicated boolean type),
 
 ## Input and Output
 
-Programs serve a purpose. Typically they follow the IPO model:
+Programs serve a purpose (hopefully). Typically they follow the IPO model:
 
 Input - Processing - Output
 
