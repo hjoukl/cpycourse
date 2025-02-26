@@ -13,8 +13,9 @@
         You need to *import* `random` to use it in your program.
         (We'll learn more about importing later on in the modules section.)
 
-        Bonus task: Extend the program to repeat dice rolling until the user
-        decides she wants to stop.
+        Bonus task: Extend the program to repeat dice rolling. Aks the user if
+        she'd like to continue, if yes ask again for the number of rolls.
+        Repaeat until the user doesn't want to continue any more.
 
 
     === "Hints"
