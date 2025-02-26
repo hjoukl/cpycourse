@@ -210,7 +210,7 @@ Function definition:
 Function call using keyword parameter:
 
 ``` python
->>> increment(a=1)
+>>> increment(number=1)
 2
 >>>
 ```
@@ -218,7 +218,7 @@ Function call using keyword parameter:
 Function call using multiple keyword parameters:
 
 ``` python
->>> increment(stride=3, a=1)  # Note the order!
+>>> increment(stride=3, number=1)  # Note the order!
 4
 >>>
 ```
