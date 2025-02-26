@@ -19,7 +19,7 @@
 
     === "Hints"
        
-        Remember that a dictionary entry can be set as a `dct[key] = value`
+        Remember that a dictionary entry can be set with a `dct[key] = value`
         assignment.
 
         Use `help(os.listdir)` for more information about this standard library
