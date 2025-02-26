@@ -731,7 +731,7 @@ A very common use is as a default function argument.
 >>>
 ```
 
-### Boolean `bool`
+### Boolean - `bool`
 
 The Python `bool` type has two built-in values named `False` and `True`:
 
