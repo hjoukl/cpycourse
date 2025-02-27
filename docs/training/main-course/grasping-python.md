@@ -463,7 +463,7 @@ An annotated variable:
 'text'
 ```
 
-Again, the annotations can be accessed through the `__annoations__` dict:
+Again, the annotations can be accessed through the `__annotations__` dict:
 
 ``` python
 >>> __annotations__  # module-level (here: interactive session)
