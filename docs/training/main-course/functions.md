@@ -100,7 +100,7 @@ definition. Such optional parameters may be omitted during the function call.
 Function definition with default paramater value:
 
 ``` python
->>> def increment(number, stride=1):  # function-header with default-argument
+>>> def increment(number, stride=1):  # function header with default argument
 ...     """Return number incremented with stride."""   # optional doc string
 ...     # function-body
 ...     result = number + stride
@@ -147,16 +147,17 @@ SyntaxError: non-default argument follows default argument
 ## Function with Variable Parameter List (Variadic Parameter)
 
 A function can be defined having a variable args parameter. This is specified
-in preceding the last positional parameter with an asterisk-character `*` in
+by a last positional parameter with the  asterisk character `*` as a prefix, in
 the function definition.
 
 Function definition:
 
 ```python
->>> # 2 normal parameter & variable args parameter
+>>> # 2 normal parameters & variable args parameter
 >>> def print_info(header, footer, *args):
 ...     print(header)
-...     for elem in args: print(elem)  # args is a tuple
+...     for elem in args:  # args is a tuple
+...         print(elem)
 ...     print(footer)
 ... 
 >>>
@@ -187,6 +188,8 @@ Toe
 >>>
 ```
 
+By convention, the variable args parameter is usually called `*args`.
+
 ## Keyword Arguments
 
 In the above sections the functions are called with **positional arguments**.
@@ -198,7 +201,7 @@ To demonstrate this, we use the `increment`-function definition from above.
 Function definition:
   
 ``` python
->>> def increment(number, stride=1):  # function-header
+>>> def increment(number, stride=1):  # function header
 ...     """Return number incremented with stride."""   # optional doc string
 ...     # function-body
 ...     result = number + stride
@@ -227,6 +230,42 @@ Function call using multiple keyword parameters:
 When (only) using keyword arguments the positions of the call arguments don't
 matter.
 
+
+## Functions with Variable Keyword Args
+
+Functions can also accept variable additional keyword parameters.  This is
+specified by prefixing the last parameter with double asterisk characters `**`.
+
+When calling the function, additional keyword arguments (that are not defined
+as explicit parameters) are captured in the "variable keyword args" parameter
+as a dictionary:
+  
+``` python  
+>>> def print_info(header, footer, **kwargs):
+...     print(header)
+...     for (arg_name, arg_value) in kwargs.items():
+...         print(f'{arg_name}: {arg_value}')
+...     print(footer)
+... 
+>>> 
+```
+
+Function call:
+
+``` python
+>>> print_info('-->', '<--', city1='Madrid', city2='Berlin', city3='Paris')
+-->
+city1: Madrid
+city2: Berlin
+city3: Paris
+<--
+>>>
+```
+
+Similarly to `*args` the variable keyword args parameter is usually called
+`**kwargs`.
+
+
 ## Functions with Variable Args and Variable Keyword Args
 
 Python allows function definitions with arbitray additional keyword parameters.
@@ -240,8 +279,8 @@ Function definition with variable keyword parameters:
 ...     print(header)
 ...     for elem in args:
 ...         print(elem)
-...     for elem in kwargs.keys():
-...         print('%s: %s' % (elem, kwargs[elem]))
+...     for (arg_name, arg_value) in kwargs.items():
+...         print(f'{arg_name}: {arg_value}')
 ...     print(footer)
 ... 
 >>> 
@@ -261,10 +300,10 @@ belonging_to: EU
 >>>
 ```
 
-A note on naming: By convention, the variable positional and keyword arg
-parameters are usually called `*args` and `**kwargs`. But this is not strictly
-necessary and you can (and should) name them differently when it's more
-appropriate, to best communicate/document your function's behaviour.
+A note on naming: As mentioned, the variable positional and keyword arg
+parameters are usually called `*args` and `**kwargs` *by convention*. This is
+not mandatory. You can (and should) name them differently - but only when it's
+more appropriate, to best communicate/document your function's behaviour.
 
 ## Function Return Value
 
@@ -285,8 +324,8 @@ None
 ```
 
 Functions can contain `return` at multiple places in the function body. Every
-return statement leads to immediately leaving the function, the return value
-being the function's result.
+return statement immediately exits the function, with the return value being
+the function's result.
 
 While Python functions always return a *single* object you can easily return
 multiple values by packing them into a collection (`tuple`, `list`, ...).
@@ -317,22 +356,27 @@ You can "destructure" a tuple to its elements very conveniently:
 
 ## Inner functions
 
-Functions can be defined at every place, at module-level, inside classes (methods), but also inside functions.
+Functions can be defined at every place, at module level, inside classes (as
+methods), but also inside functions.
 
 ***function definition***
 
 ``` python
->>> def outer_func(inner_func):
-...     """ function which defines inner functions"""
+>>> def outer_func(inner_func_name):
+...     """Function that defines inner functions and returns the requested 
+...     inner function by name.
+...     """
 ...     def x():
 ...         print(x.__name__)
 ...     def y():
 ...         print(y.__name__)
 ...     # return an inner function, simply by its name
-...     if inner_func == 1:
+...     if inner_func_name == "x":
 ...         return x
-...     else:
+...     elif inner_func_name == "y":
 ...         return y
+...     else:
+...         return None
 ... 
 >>>
 ```
@@ -340,17 +384,18 @@ Functions can be defined at every place, at module-level, inside classes (method
 ***function call***
 
 ``` python
->>> a_func = outer_func(1)    # assign a function
->>> a_func()                  # call the function
+>>> x_func = outer_func("x")  # assign a function
+>>> x_func()                  # call the function
 x
->>> b_func = outer_func(2)    # assign a function
->>> b_func()                  # call the function
+>>> y_func = outer_func("y")  # assign a function
+>>> y_func()                  # call the function
 y
 >>>
 ```
 
 **Note:**
 As can be seen, functions are like ordinary Python objects that can be returned and assigned.
+Of course, they can also be used as *arguments* for other functions.
 
 ## Function Annotations
 
@@ -391,16 +436,17 @@ Hints](https://www.python.org/dev/peps/pep-0484/).
 
 ## Python Function Call Semantics
 
-Traditional function call semantics are:
+Traditional function call semantics (as e.g. known from C/C++) are:
 
 1. Call-by-value:
 
-- the value of the argument variable is copied to the call parameter of the function
+- the value of the argument variable is *copied* to the call parameter of the
+  function
 - changing the value inside the function doesn't effect the caller
 
 2. Call-by-reference:
 
-- a reference of the caller's variable is passed to the call parameter of the
+- a *reference* of the caller's variable is passed to the call parameter of the
    function
 - as a consequence, changes to the variable inside the function will affect
    the callers variable (side effect from callee back to the caller)
@@ -408,12 +454,12 @@ Traditional function call semantics are:
    channels between caller and callee (since the changes made inside the
    function can be seen on/provided to the outside)
 
-**Python does not have such a distinction.** Every variable is a name
-for an object / constitutes a reference to an object. In that sense everything
-is passed around by reference, which is also the case for function calls.
+**Python does not have such a distinction.** Every variable is a name for an
+object and constitutes a reference to the object. In that sense everything is
+passed around by reference, which is also the case for function calls.
 
 Instead, the Python function call behaviour with regard to modification of
-parameters are solely influenced by the mutability or immutability of the
+parameters is solely influenced by the *mutability* or *immutability* of the
 caller's function call arguments:
 
 1. Argument variables referring to an immutable object will not produce side
