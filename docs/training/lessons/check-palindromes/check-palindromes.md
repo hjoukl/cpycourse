@@ -5,7 +5,12 @@
         Create a function that
         
         - takes a single string argument and
-        - returns `True` if string is a palindrome, `False` otherwise.
+        - returns `True` if string is a
+          [palindrome](https://en.wikipedia.org/wiki/Palindrome), `False`
+          otherwise.
+
+        A palindrome is a text that reads the same forward and backwards, e.g.
+        "abba".
 
         1. Use a loop for implementation.
         2. Try an alternative implementation using "extended slicing": Check
