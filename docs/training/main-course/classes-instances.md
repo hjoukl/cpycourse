@@ -279,7 +279,7 @@ control with regard to read, write and delete access.
 
 Python properties represent managed attributes. This is achieved through
 Python's [descriptor
-protocol](https://docs.python.org/3/howto/descriptor.html), by providing 
+protocol](https://docs.python.org/3/howto/descriptor.html), by providing
 `getter`, `setter` and `deleter` methods which enable intercepting regular
 attribute access with accessor functions.
 
@@ -389,14 +389,15 @@ deleter method.
 
 ## Relationships between Classes
 
-Python supports 'inheritance' ("is-a" relation) and 'composition' ("has-a" relation) of classes/instances.
+Python supports 'inheritance' ("is-a" relation) and 'composition' ("has-a"
+relation) of classes/instances.
 
 (Multiple) inheritance and the mechanism of 'method overriding' provide for
 the usual notion of 'polymorphism' found in many object-oriented languages.
 
-In addition, Python allows for the so-called **Duck-Typing**, a kind of
+In addition, Python allows for the so-called **duck typing**, a kind of
 polymorphism that does not build upon an object being of a certain single type
-but implementing certain features (implementing a 'protocol').
+but implementing certain features (in other words, implementing a 'protocol').
 
 ### Inheritance ("is-a" relation)
 
@@ -456,11 +457,11 @@ A subclass can also add behaviour:
 >>> class SomeSocialFriendlyClass(SomeFriendlySubClass):
 ...     def meet(self, other):  # additional method
 ...         print(f"Hello {other}, nice to meet you!")
-... 
+...
 >>> social_obj = SomeSocialFriendlyClass('Taylor')
 >>> social_obj.meet('Ed')
 Hello Ed, nice to meet you!
->>> 
+>>>
 ```
 
 Note how `SomeSocialFriendlyClass` inherits from `SomeFriendlySubClass` which
@@ -542,7 +543,7 @@ Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
   File "<stdin>", line 3, in access_x
 AttributeError: 'Derived' object has no attribute '_Derived__x'
->>> 
+>>>
 ```
 
 #### Multiple Inheritance
@@ -603,39 +604,39 @@ E.g. `Car` creates and has an instance attribute which is an `Engine`-like
 object:
 
 ```python
->>> class Engine:                             
-...     @property                             
-...     def name(self):                       
-...         ... 
-... 
->>> class CombustionEngine:           
+>>> class Engine:
+...     @property
+...     def name(self):
+...         ...
+...
+>>> class CombustionEngine:
 ...     def __init__(self, cylinders, layout):
-...         self.cylinders = cylinders        
-...         self.layout = layout              
-...     @property                             
-...     def name(self):                       
+...         self.cylinders = cylinders
+...         self.layout = layout
+...     @property
+...     def name(self):
 ...         return f'{self.cylinders}-cylinders-{self.layout}'
-... 
->>> class Car:                     
+...
+>>> class Car:
 ...     def __init__(self, brand, model):
-...         self.brand = brand     
-...         self.model = model     
+...         self.brand = brand
+...         self.model = model
 ...         self.engine = CombustionEngine(cylinders=6, layout='boxer')
-...     @property                  
-...     def name(self):            
+...     @property
+...     def name(self):
 ...         return f'{self.brand} {self.model}'
-...     # Since using the Engine class is an internal detail here (and could       
+...     # Since using the Engine class is an internal detail here (and could
 ...     # change) we should provide for a method to get the engine name.
-...     @property      
-...     def engine_name(self):     
+...     @property
+...     def engine_name(self):
 ...         return self.engine.name
-... 
+...
 >>> car = Car('Racemaker', '9110')
 >>> car.name
 'Racemaker 9110'
 >>> car.engine_name
 '6-cylinders-boxer'
->>> 
+>>>
 ```
 
 #### 'Used-By' Composition
@@ -644,27 +645,28 @@ It's usually better to not couple the classes so tightly and instead *inject*
 an object to the using class:
 
 ``` python
->>> class Engine:                             
-...     @property                             
+>>> class Engine:
+...     @property
 ...     def name(self):
 ...         ...
 ...
 >>> class CombustionEngine(Engine):
 ...     def __init__(self, cylinders, layout):
 ...         self.cylinders = cylinders
-...         self.layout = layout   
-...     @property                  
-...     def name(self):            
+...         self.layout = layout
+...     @property
+...     def name(self):
 ...         return f'{self.cylinders}-cylinders-{self.layout}'
-... 
->>> class Car:                     
+...
+>>> class Car:
 ...     def __init__(self, brand, model, engine):
-...         self.brand = brand     
-...         self.model = model     
-...         self.engine = engine   
-...     @property                                                              ...     def name(self):
+...         self.brand = brand
+...         self.model = model
+...         self.engine = engine
+...     @property
+...     def name(self):
 ...         return f'{self.brand} {self.model}'
-... 
+...
 >>> engine = CombustionEngine(cylinders=6, layout='boxer')
 >>> car = Car('Racemaker', '9110', engine=engine)
 >>> car.name
@@ -675,12 +677,12 @@ an object to the using class:
 '6-cylinders-boxer'
 >>> car.engine.name
 '6-cylinders-boxer'
->>> 
+>>>
 ```
 
 This gains flexibility e.g. for testing since it's now easy to inject a mock or
 fake object instead of "the real thing". Moreover, we could now easily fit a
-modern age `ElectricMotor` into our dinosaur sports car. 
+modern age `ElectricMotor` into our dinosaur sports car.
 
 Instead of injecting a class instance there's room for variation:  a middle
 ground may be to inject a class object instead, leaving instantiation to the
@@ -719,7 +721,7 @@ retaining their signature.
 
 When variables of the base class type holding a reference to a derived class
 instance call a member function, the runtime will 'virtually dispatch' to the
-derived class' overridden member function. 
+derived class' overridden member function.
 
 While this does allow for runtime polymorphism it is restricted to a (sub-)
 type relationship through inheritance: only subclasses of the superclass/base
@@ -741,18 +743,18 @@ Here's a contrived example:
 >>> class Animal:
 ...     def speak(self):
 ...         print('Animals speak')
-... 
+...
 >>> class Cat(Animal):
 ...     def speak(self):
 ...         print('Meow')
-... 
+...
 >>> class Dog(Animal):
 ...     def speak(self):
 ...         print('Wuff')
-... 
+...
 >>> def make_animals_talk(animal):
 ...     animal.speak()
-... 
+...
 >>> make_animals_talk(Cat())
 Meow
 >>> make_animals_talk(Dog())
@@ -760,7 +762,7 @@ Wuff
 >>> class RoboDuck:       # Robot duck with A.I., not a live animal
 ...     def speak(self):  # RoboDuck implements the 'speak protocol'
 ...         print('Beep beep beep')
-... 
+...
 >>> # This will work: RoboDuck is not a subclass of Animal, but it implements
 >>> # the 'speak protocol'
 >>> make_animals_talk(RoboDuck())
@@ -811,7 +813,7 @@ The decorated method must take the class object as its 1st argument
 
 Like e.g. C++ static member functions Python's static methods neither work on
 class instances nor on classes. Rather, the class acts as an additional
-namespace for these methods, much like a module acts as a namespace for 
+namespace for these methods, much like a module acts as a namespace for
 functions.
 
 Static methods could be used for (utility) functions that belong to a class
@@ -860,7 +862,7 @@ on the class:
 ...     def __call__(self):
 ...         self.count += 1
 ...         return self.count
-... 
+...
 >>> count = Counter()
 >>> count()
 1
@@ -868,7 +870,7 @@ on the class:
 2
 >>> count()
 3
->>> 
+>>>
 ```
 
 ## Lesson: Customer Class
@@ -929,14 +931,14 @@ We can e.g. add custom methods to a class:
 ...         print("Hello, I'm a friendly class.")
 ...     setattr(cls, "greet", greet)
 ...     return cls
-... 
+...
 >>> @make_friendly
 ... class MyClass:
 ...     pass
-... 
+...
 >>> MyClass().greet()
 Hello, I'm a friendly class.
->>> 
+>>>
 ```
 
 In a more realistic scenario we might use a decorator that traces/logs entering
